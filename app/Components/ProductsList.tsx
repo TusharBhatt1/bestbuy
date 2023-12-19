@@ -21,7 +21,6 @@ export default async function ProductsList() {
       {products?.map((product)=>(
 
         <DynamicProductCard
-        addToCart
         key={product.id}
         product={product}/>
     ))}
