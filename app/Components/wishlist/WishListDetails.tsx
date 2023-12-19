@@ -1,0 +1,102 @@
+import useWishListModal, { WishList } from '@/app/Others/hooks/useWishlistModal';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import toast from 'react-hot-toast';
+import { ProductType } from '@/app/@types';
+import useCartDetails from '@/app/Others/hooks/useCartDetails';
+
+interface WishlistDetailsProps {
+  all_wishlists: WishList[];
+}
+
+export default function WishListDetails({ all_wishlists }: WishlistDetailsProps) {
+  const [expandedWishlist, setExpandedWishlist] = useState<number | null>(null);
+  const wishListModal = useWishListModal();
+  const {addItem,setFinalCart}=useCartDetails()
+
+  const toggleExpand = (index: number) => {
+    setExpandedWishlist((prev) => (prev === index ? null : index));
+  };
+   
+  const handleDeleteWishlist=(listname:string)=>{
+    wishListModal.onDeleteWishlist(listname)
+    toast.error("Deleted")
+  }
+  const handleRemoveItem=(listname:string,itemname:string)=>{
+   wishListModal.removeItemFromWishlist(listname,itemname)
+  }
+
+  const handleBuyNow=(item:ProductType)=>{
+    addItem(item)
+    setFinalCart();
+    toast.success("Added to cart")
+  }
+  const sortItemsByPrice = (items: any[]) => {
+    return items.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+  };
+
+  return (
+    <div className='hidden mt-20 md:flex w-1/2 ml-4 mr-4 shadow-md  p-2 max-h-80 flex-col justify-center items-center'>
+    <div className=' rounded-md justify-center p-4 items-center h-full w-full overflow-x-auto '>
+      <div className='w-full h-full m-auto'>
+        <p className='text-xl text-center'>All WishLists({all_wishlists.length})</p>
+        <div className='space-y-4 mt-4'>
+          {all_wishlists.length !== 0 ? (
+            all_wishlists.map((wishlist, index) => (
+              <div key={index} className='border-b-2 border-slate-200 p-2 rounded'>
+                <div className='flex justify-between items-center mb-2'>
+                  <p className=' text-md font-bold cursor-pointer' onClick={() => toggleExpand(index)}>
+                    {wishlist.listName} <span className='text-xs text-slate-300'>({wishlist.listItems.length})</span>
+                  </p>
+                  <button
+                    onClick={() => toggleExpand(index)}
+                    className='text-blue-500  focus:outline-none'
+                  >
+                    {expandedWishlist === index ? '▲' : '▼'}
+                  </button>
+                  <button
+                  className='text-sm text-red-500'
+                  onClick={()=>handleDeleteWishlist(wishlist.listName)}>
+                    Remove
+                  </button>
+                </div>
+                {expandedWishlist === index && (
+                  <ul className='list-disc'>
+                    {sortItemsByPrice(wishlist.listItems).map((item:ProductType) => (
+                      <div className='flex gap-2 px-2 items-center' key={item.id}>
+                      <Link className='hover:underline' href={`/product/${item.id}`} >
+                        <li className='mb-2'>
+                          <span className='text-sm'>{item.title}</span>{' '}
+                          <span className='text-xs text-slate-400'>- Rs {item.price}</span>
+                        </li>
+                      </Link>
+                      <div className='flex gap-4'>
+                      <button className='hover:font-bold  text-sm  text-blue-600' onClick={()=>handleBuyNow(item)}>
+                        Buy
+                      </button>
+                      <button className='hover:font-bold  text-sm  text-red-600' onClick={()=>handleRemoveItem(wishlist.listName,item.title)}>
+                       Remove
+                      </button>
+                      </div>
+                      </div>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))
+          ) : (
+            <p className='text-slate-400 p-4'>No Wishlist</p>
+          )}
+          
+        </div>
+      </div>
+    </div>
+    <button
+          className='border-blue-300 border-2 mt-4 m-auto rounded-lg p-1'
+            onClick={() => wishListModal.onOpen()}
+          >
+            Create WishList
+          </button>
+          </div>
+  );
+}

@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* , html , body {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(240, 10%, 3.9%);
+  --primary: hsl(240, 5.9%, 10%);
+  --primary-foreground: hsl(0, 0%, 98%);
+}
+
+.rotate {
+    animation: rotateAnimation 1s linear infinite; /* Adjust duration and other properties as needed */
+  }
+  
+
+@keyframes rotateAnimation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .fadeInAnimation{
+    animation: fadeIn 0.5s linear;
+}
+
+@keyframes fadeIn {
+    from{
+        scale: 0.8;
+    }
+    to{
+        scale: 1;
+    }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1); 
+  }
+}
+
+
+.zoomIn {
+  animation: zoomIn 0.5s ease-in-out; 
+}
+
+  
+  
