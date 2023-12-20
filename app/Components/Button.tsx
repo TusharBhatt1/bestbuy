@@ -1,5 +1,5 @@
 import { IconType } from "react-icons";
-import {FiLoader} from "react-icons/fi"
+import { FiLoader } from "react-icons/fi";
 interface ButtonProps {
   label: string;
   onClick?: () => void;
@@ -7,26 +7,23 @@ interface ButtonProps {
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
-  type?:"submit" | undefined
-  isProcessing?:boolean
+  type?: "submit" | undefined;
+  isProcessing?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ 
-  label, 
-  onClick, 
-  disabled, 
+const Button: React.FC<ButtonProps> = ({
+  label,
+  onClick,
+  disabled,
   isProcessing,
   outline,
   small,
   type,
   icon: Icon,
 }) => {
-
- 
-  return ( 
-    
+  return (
     <button
-     type={type}
+      type={type}
       disabled={disabled}
       onClick={onClick}
       className={`
@@ -38,13 +35,13 @@ const Button: React.FC<ButtonProps> = ({
         hover:opacity-80
         transition
         w-1/2
-        ${outline ? 'bg-white' : 'bg-blue-500'}
-        ${outline ? 'border-black' : 'border-blue-500'}
-        ${outline ? 'text-black' : 'text-white'}
-        ${small ? 'text-sm' : 'text-md'}
-        ${small ? 'py-1' : 'py-3'}
-        ${small ? 'font-light' : 'font-semibold'}
-        ${small ? 'border-[1px]' : 'border-2'}
+        ${outline ? "bg-white" : "bg-blue-500"}
+        ${outline ? "border-black" : "border-blue-500"}
+        ${outline ? "text-black" : "text-white"}
+        ${small ? "text-sm" : "text-md"}
+        ${small ? "py-1" : "py-3"}
+        ${small ? "font-light" : "font-semibold"}
+        ${small ? "border-[1px]" : "border-2"}
       `}
     >
       {Icon && (
@@ -57,9 +54,16 @@ const Button: React.FC<ButtonProps> = ({
           "
         />
       )}
-      {isProcessing ? (<FiLoader size={20} className="flex justify-center items-center animate-spin"/>)  :label}
+      {isProcessing ? (
+        <FiLoader
+          size={20}
+          className="flex justify-center items-center animate-spin"
+        />
+      ) : (
+        label
+      )}
     </button>
-   );
-}
- 
+  );
+};
+
 export default Button;

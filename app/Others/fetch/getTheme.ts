@@ -16,7 +16,4 @@ export async function getTheme() {
 }
 
 
- // if (!res.ok) {
-    //   toast.error("Something went wrong");
-    //   return fallbackTheme;
-    // }
+ 

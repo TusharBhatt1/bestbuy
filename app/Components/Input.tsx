@@ -20,10 +20,10 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   onChange,
   required,
-  error='',
+  error = "",
   ...props
 }) => {
-  const Icon:any = icon
+  const Icon: any = icon;
   return (
     <div className="flex flex-col mt-4">
       <label

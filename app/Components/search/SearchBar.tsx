@@ -1,11 +1,12 @@
 "use client"
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import {use} from "react"
 import { ProductType } from '@/app/@types'
 import { AiOutlineSearch } from 'react-icons/ai'
 import dynamic from 'next/dynamic'
 import { getProducts } from '@/app/Others/fetch/getProducts'
 import { FiLoader } from 'react-icons/fi'
+
 
 const DynamicSearchResult =dynamic(()=>import('./SearchResult'))
 
@@ -22,9 +23,12 @@ export default function SearchBar() {
     const [showResult , setShowResult]=useState(false)
     const [filteredResult , setFilteredResults]=useState<ProductType[]>(allProducts)
      
-    const filterResult=(query:string)=>{
-     setFilteredResults(allProducts.filter((product)=>product.title.toLowerCase().includes(query.toLowerCase())))
-    }
+    const filterResult=useCallback((query)=>{
+      (query:string)=>{
+        setFilteredResults(allProducts.filter((product)=>product.title.toLowerCase().includes(query.toLowerCase())))
+       }
+    },[setIsSearching]) 
+
     const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
         let input = e.target.value;
         

@@ -15,6 +15,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
 import Input from "@/app/Components/Input";
+import useUserPaymentData from "@/app/Others/hooks/useUserPaymentData";
+import { useRouter } from "next/navigation";
 
 const formConfig = [
   {
@@ -70,6 +72,8 @@ const formConfig = [
 
 
 export default function UserDetailsForm() {
+
+  const {setUserDetails,userdetails}=useUserPaymentData()
   const {
     handleSubmit,
     formState: { errors },
@@ -79,6 +83,7 @@ export default function UserDetailsForm() {
     resolver: yupResolver(userSchema),
   });
 
+  const router=useRouter()
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -87,9 +92,11 @@ export default function UserDetailsForm() {
   };
 
   const onSubmit = (data: UserSchemaType) => {
-    console.log(data);
-
+  
+    setUserDetails(data)
     toast.success("Accepted, just a moment!");
+    router.push("/checkout/details/payment")
+    
   };
 
   return (

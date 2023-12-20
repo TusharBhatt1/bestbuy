@@ -4,6 +4,7 @@ import { ProductType } from "@/app/@types";
 import useLRU from "@/app/Others/hooks/useLRU";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 const DynamicProductDetails = dynamic(() => import("./ProductDetails"));
 
 export default function GetProduct({ id }: { id: number }) {
@@ -19,7 +20,10 @@ export default function GetProduct({ id }: { id: number }) {
         setItem(`${id}`, data);
       })
       .catch((error) => {
-        console.error("Error fetching product:", error);
+       toast.error("Unable to fetch")
+       //@ts-ignore
+       setDetails({})
+       return
       });
   };
   const getData = (id: number) => {
@@ -27,6 +31,7 @@ export default function GetProduct({ id }: { id: number }) {
 
     if (cachedItem) {
       setDetails(cachedItem.value);
+    
       return;
     } else fetchData(id);
   };

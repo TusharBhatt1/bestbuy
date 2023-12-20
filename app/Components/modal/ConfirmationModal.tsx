@@ -14,7 +14,7 @@ export default function ConfirmationModal () {
   const [orderPlaced, setOrderPlaced] = useState(false); 
 
   const onSubmit = useCallback(() => {
-    toast.success("ORDER PLACED")
+   
     setOrderPlaced(true)
     router.push("/") 
     resetFinalCart()
@@ -26,6 +26,7 @@ export default function ConfirmationModal () {
   useEffect(() => {
     setTimeout(() => {
       setOrderPlaced(true); 
+      toast.success("ORDER PLACED")
     }, 2000);
   }, []);
 

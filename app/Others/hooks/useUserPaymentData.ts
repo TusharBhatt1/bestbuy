@@ -9,7 +9,7 @@ interface UserDetails {
 
 interface UserDetailsProps {
   userdetails: UserSchemaType;
-  setUserDetails: (value: UserDetails) => void;
+  setUserDetails: (value: UserSchemaType) => void;
   paymentMethod: string;
   setPaymentMethod: (value: string) => void;
   resetDetails: () => void;
@@ -23,7 +23,7 @@ const useUserPaymentData = create<UserDetailsProps>((set) => ({
     contact: "",
     password:"",
     password_confirmation:"",
-    profile:""
+    profile:{}
 
   },
   setUserDetails: (value) => set({ userdetails: value }), 
