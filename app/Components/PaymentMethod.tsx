@@ -17,11 +17,13 @@ export default function PaymentMethod({totalPrice}:{totalPrice:number}) {
     payBody = (
       <div className='flex gap-4 justify-center'>
        <Input
+       name=""
        required
        placeholder=' Mr John'
        label='User Name'
        />
        <Input
+       name=""
        required
        placeholder=' John@sbi123'
        label='UPI ID'
@@ -35,11 +37,13 @@ export default function PaymentMethod({totalPrice}:{totalPrice:number}) {
       <div className='flex flex-col  justify-center items-center text-center'> 
       <div className='flex gap-4'>
       <Input 
+      name=""
       required
       placeholder='Mr John '
       label='Holder Name'
       />
       <Input
+      name=""
       required
       type="number" 
       placeholder='1234 5678 4321 '
