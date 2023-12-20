@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 
 export default function RecentlyViewed({ cache }: { cache: CacheItem[] }) {
-  const params = useParams();
+const params = useParams();
 const id = params.id;
   return (
     <div className="w-full px-10 md:px-0  h-full p-4">
