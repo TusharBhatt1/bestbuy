@@ -14,10 +14,16 @@ export default function PageNotFound() {
             removed.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-           <Link href={"/"} className="bg-purple-400 rounded-xl text-white p-2">
+            <Link
+              href={"/"}
+              className="bg-purple-400 rounded-xl text-white p-2"
+            >
               Go Home Page
             </Link>
-            <Link href={"/checkout"} className="bg-black rounded-xl text-white p-2" >
+            <Link
+              href={"/checkout"}
+              className="bg-black rounded-xl text-white p-2"
+            >
               View Cart
             </Link>
           </div>
