@@ -14,6 +14,8 @@ export default function Payment() {
     const {finalCart}=useCartDetails()
     const totalPrice = finalCart.reduce((a, b) => a + b.price, 0);
    
+
+  
   return (
     <div className='flex max-h-[70vh] mt-4 w-full justify-center items-center text-xs'>
         <div className='shadow-xl p-4 overflow-x-auto'>

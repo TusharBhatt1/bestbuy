@@ -10,7 +10,6 @@ interface OrderDetails {
   onDelete:(id:number)=>void,
   setFinalCart: () => void
   resetFinalCart:()=>void
-  
 
 }
 

@@ -6,11 +6,10 @@ export default function WishList() {
   
   const {all_wishlists}=useWishListModal()
   return (
-    <>
-    
+  
     <WishListDetails
     all_wishlists={all_wishlists}
     />
-    </>
+
   )
 }

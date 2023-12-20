@@ -7,9 +7,10 @@ import useCartDetails from '@/app/Others/hooks/useCartDetails';
 
 interface WishlistDetailsProps {
   all_wishlists: WishList[];
+  showOnMobile?:boolean
 }
 
-export default function WishListDetails({ all_wishlists }: WishlistDetailsProps) {
+export default function WishListDetails({ all_wishlists,showOnMobile=false }: WishlistDetailsProps) {
   const [expandedWishlist, setExpandedWishlist] = useState<number | null>(null);
   const wishListModal = useWishListModal();
   const {addItem,setFinalCart}=useCartDetails()
@@ -36,7 +37,7 @@ export default function WishListDetails({ all_wishlists }: WishlistDetailsProps)
   };
 
   return (
-    <div className='hidden mt-20 md:flex w-1/2 ml-4 mr-4 shadow-md  p-2 max-h-80 flex-col justify-center items-center'>
+    <div className="mt-20 hidden md:flex w-[50vw] ml-4 mr-4 shadow-md  p-2 max-h-80 flex-col justify-center items-center">
     <div className=' rounded-md justify-center p-4 items-center h-full w-full overflow-x-auto '>
       <div className='w-full h-full m-auto'>
         <p className='text-xl text-center'>All WishLists({all_wishlists.length})</p>

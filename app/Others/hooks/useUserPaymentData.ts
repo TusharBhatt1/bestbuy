@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { UserSchemaType } from "../validations/userSchema";
 
 interface UserDetails {
   name: string;
@@ -7,7 +8,7 @@ interface UserDetails {
 }
 
 interface UserDetailsProps {
-  userdetails: UserDetails;
+  userdetails: UserSchemaType;
   setUserDetails: (value: UserDetails) => void;
   paymentMethod: string;
   setPaymentMethod: (value: string) => void;
@@ -20,12 +21,16 @@ const useUserPaymentData = create<UserDetailsProps>((set) => ({
     name: "",
     address: "",
     contact: "",
+    password:"",
+    password_confirmation:"",
+    profile:""
+
   },
-  setUserDetails: (value) => set({ userdetails: value }), // Fixed the function parameter type.
+  setUserDetails: (value) => set({ userdetails: value }), 
   paymentMethod: "",
-  setPaymentMethod: (value) => set({ paymentMethod: value }), // Fixed the function parameter type.
-  resetDetails: () => set({ userdetails: { name: "", address: "", contact: "" } }), // Fixed the object key name.
-  resetPaymentMethod: () => set({ paymentMethod: "" }), // Fixed the object key name.
+  setPaymentMethod: (value) => set({ paymentMethod: value }), 
+  resetDetails: () => set({ userdetails: {} }),
+  resetPaymentMethod: () => set({ paymentMethod: "" }), 
 }));
 
 export default useUserPaymentData;

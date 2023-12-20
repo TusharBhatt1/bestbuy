@@ -40,7 +40,7 @@ export default function AddToWishlistModal() {
 )
 if(wishlist.all_wishlists.length===0){
     body=(
-         <div>
+     <div>
         <p className="text-sm text-slate-400">No wishlist, kindly create new.</p>
     </div>
     )

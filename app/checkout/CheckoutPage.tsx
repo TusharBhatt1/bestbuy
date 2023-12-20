@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import useCartDetails from '../Others/hooks/useCartDetails';
 import { OrderDetailsProps } from '../@types';
@@ -10,9 +10,9 @@ import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 
-// Function to render CheckoutPage
+
 export default function CheckoutPage({ orderDetails }: { orderDetails: OrderDetailsProps }) {
-  // Extract necessary information from orderDetails
+  
   const { products } = orderDetails;
   const { setExistingCart, setFinalCart, finalCart,onDelete } = useCartDetails();
   const router = useRouter();
@@ -26,11 +26,18 @@ export default function CheckoutPage({ orderDetails }: { orderDetails: OrderDeta
   // Set the final cart and log it when the existing cart changes
   useEffect(() => {
     setFinalCart();
-    console.log("Final Cart is " + finalCart)
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setExistingCart]);
+  
 
-  // If the final cart is empty, display a message to explore products
+  const onClick=()=>{
+  
+  toast("Almost there!")
+  router.push("/checkout/details")
+  
+  }
+ 
   if (finalCart.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-[40vh]">
@@ -59,7 +66,7 @@ export default function CheckoutPage({ orderDetails }: { orderDetails: OrderDeta
                 <div className=" w-1/4 hidden sm:flex ">
                 <Button
                 label="Checkout"
-                onClick={() => router.push('/checkout/details')}
+                onClick={onClick}
                 />
                 </div>
       </div>
@@ -113,7 +120,7 @@ export default function CheckoutPage({ orderDetails }: { orderDetails: OrderDeta
       <div className=" flex sm:hidden justify-end mt-10 ">
         <Button
           label="Checkout"
-          onClick={() => router.push('/checkout/details')}
+          onClick={onClick}
         />
       </div>
     </div>

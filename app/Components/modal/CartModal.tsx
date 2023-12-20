@@ -1,11 +1,12 @@
 "use client"
 import { OrderDetailsProps } from '@/app/@types'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from './Modal'
 import useCart from '@/app/Others/hooks/useCartModal'
 import { useRouter } from 'next/navigation'
 import useCartDetails from '@/app/Others/hooks/useCartDetails'
 import Image from 'next/image'
+import toast from 'react-hot-toast'
 
 
 
@@ -13,6 +14,8 @@ export default function CartModal({orderDetails}:{orderDetails:OrderDetailsProps
 
 const {products}=orderDetails
 const {setFinalCart,finalCart, setExistingCart}=useCartDetails()
+
+
 
 const totalPrice=finalCart.reduce((a,item)=>a+item.price*item.quantity|1,0)
 useEffect(()=>{
@@ -29,9 +32,15 @@ const router= useRouter()
 
 const onSubmit=()=>{
 
-  if(cartSize===0) router.push("/")
-  else router.push("/checkout")
-  cartModal.onClose()
+  if(cartSize===0){
+     toast("Add Products")
+     router.push("/")
+  }
+  else {
+    toast("Almost there!")
+    router.push("/checkout")
+    cartModal.onClose()
+  }
 }
 
 let bodyContent
@@ -55,6 +64,7 @@ bodyContent=(
      {finalCart.map((product)=>(
       <div key={product.id} className='flex w-full justify-between'>
         <p className='text-sm'><li>{product.title}</li></p>
+  
         <Image
         src={product.image}
         height={30}

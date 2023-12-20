@@ -1,6 +1,14 @@
+import toast from "react-hot-toast";
+
 export async function getProducts() {
-    const res= await fetch("https://fakestoreapi.com/products")
-    if(!res.ok) throw new Error("Failed to Fetch")
-    const data= await res.json()
-    return data
+  try{
+    const res = await fetch("https://fakestoreapi.com/products?limit=6");
+    const data = await res.json();
+    return data;
+  }
+  catch{
+    toast.error("Unable to fetch data , kindly refresh")
+    return [];
+  }
+
 }

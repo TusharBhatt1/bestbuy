@@ -36,7 +36,7 @@ export default function WishlistModal() {
     const [isCreated , setIsCreated]= useState(false)
     
     const [isError , setIsError]=useState(false)
-    const [errorMsg , setErrorMsg]= useState("")
+    const [errorMsg , setErrorMsg]= useState<string>("")
     const [productsList, setProductsList]=useState<ProductType[]>([])
     
 
@@ -59,14 +59,14 @@ export default function WishlistModal() {
     },[step])
 
 
-    const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+    const handleChange=(e:React.ChangeEvent<HTMLInputElement>,name:string)=>{
        
         if(isError){
             setIsError(false)
         }
         setCurrentWishList({
             ...currentWishList,
-           [e.target.name]:e.target.value
+           [name]:e.target.value
         })
        
     }
@@ -89,7 +89,7 @@ export default function WishlistModal() {
 
             if(wishListModal.all_wishlists.some((list)=>list.listName===currentWishList.listName)){
                 setIsError(true)
-                setErrorMsg("Name Already Exists")
+                setErrorMsg('Wishlist with same name already exists')
                 return
             }
             if(currentWishList.listName.length===0){
@@ -172,19 +172,19 @@ export default function WishlistModal() {
         flex flex-col
         gap-4
         '> 
-           {isError &&<span className='text-xs italic'>{errorMsg}</span>}
+           {/* {isError &&<span className='text-xs italic'>{errorMsg}</span>} */}
            <Input
            label='Name'
+           error={isError ? errorMsg:''}
            name='listName'
-           isError={isError}
            placeholder='Enter list name'
            value={currentWishList.listName}
-           onChange={handleChange}
+           onChange={(e)=>handleChange(e,"listName")}
            />
 
         </div>
     )
-    
+  
     if(step===STEPS.items){
 
       bodyContent=(

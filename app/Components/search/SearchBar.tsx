@@ -6,16 +6,11 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import dynamic from 'next/dynamic'
 import { getProducts } from '@/app/Others/fetch/getProducts'
 import { FiLoader } from 'react-icons/fi'
+
 const DynamicSearchResult =dynamic(()=>import('./SearchResult'))
 
 
-async function fetchData() {
-  const res= await fetch("https://fakestoreapi.com/products")
-  if(!res.ok) throw new Error("FAILED TO FETCH")
-  const data= await res.json()
-  return data
-}
-const dataPromise=  fetchData()
+const dataPromise=  getProducts()
 
 export default function SearchBar() {
     const data=use(dataPromise)
@@ -32,8 +27,8 @@ export default function SearchBar() {
     }
     const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
         let input = e.target.value;
-
-        if(alreadysearched.includes(input)) {
+        
+        if(alreadysearched.includes(input.replace(/\s/g,''))) {
           filterResult(input)
           setIsSearching(false)
         }
@@ -42,8 +37,7 @@ export default function SearchBar() {
           input = input.replace(/\s/g, '');
           filterResult(input);
           setIsSearching(true)
-          
-          setTimeout(()=>setIsSearching(false),500)
+          setTimeout(()=>setIsSearching(false),1000)
         }
         else setIsSearching(false)
       }

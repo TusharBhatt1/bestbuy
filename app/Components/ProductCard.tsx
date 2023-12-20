@@ -37,7 +37,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
     <ul className="cursor-pointer">
     <li className="border rounded-lg transition-transform transform-gpu hover:shadow-xl">
     
-        <div className="flex max-h-40 items-start justify-between p-4">
+        <div className="flex h-40 items-start justify-between p-4">
         
             <Link href={`/product/${id}`}>
                <div className='grid grid-rows-1'>
@@ -64,7 +64,6 @@ export default function ProductCard({ product }: { product: ProductType }) {
           />
           <Link href={`/product/${product.id}`}>
             VIEW
-            {/* <a className="text-indigo-600 hover:text-indigo-500 text-sm font-medium">View product</a> */}
           </Link>
         </div>
       </li>

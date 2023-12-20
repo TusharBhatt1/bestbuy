@@ -15,8 +15,6 @@ interface Props{
     onOpen:()=>void,
     onClose:()=>void,
     removeItemFromWishlist:(listname:string,itemName:string)=>void
-
-
 }
 const useWishListModal=create<Props>((set)=>({
 all_wishlists:[],

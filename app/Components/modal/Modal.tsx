@@ -2,11 +2,11 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
-
 import Button from "../Button";
 
 interface ModalProps {
   isOpen?: boolean;
+  isProcessing?:boolean
   onClose: () => void;
   onSubmit: () => void;
   title?: string;
@@ -33,6 +33,7 @@ const Modal: React.FC<ModalProps> = ({
   secondaryActionLabel
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
+ 
 
   useEffect(() => {
     setShowModal(isOpen);
@@ -93,6 +94,7 @@ const Modal: React.FC<ModalProps> = ({
         lg:w-1/2
         xl:w-2/5
         my-6
+       
         ${isCart ? "ml-auto":"mx-auto"}
        
         ${isCart ? "lg:h-full md:h-full" :" lg:h-auto md:h-auto"}
@@ -105,6 +107,7 @@ const Modal: React.FC<ModalProps> = ({
             translate
             duration-300
             h-full
+            bg-white
             ${showModal ? 'translate-x-0' : 'translate-x-full'}
             ${showModal ? 'opacity-100' : 'opacity-0'}
           `}>
@@ -113,7 +116,7 @@ const Modal: React.FC<ModalProps> = ({
             translate
             h-full
             ${isCart ? "lg:h-full md:h-full":" lg:h-auto md:h-auto"}
-            
+           
             border-0 
             rounded-lg 
             shadow-lg 
@@ -121,7 +124,7 @@ const Modal: React.FC<ModalProps> = ({
             flex 
             flex-col 
             w-full 
-            bg-white
+            
             outline-none 
             focus:outline-none
           `}

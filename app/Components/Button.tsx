@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 import {FiLoader} from "react-icons/fi"
 interface ButtonProps {
   label: string;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: () => void;
   disabled?: boolean;
   outline?: boolean;
   small?: boolean;
