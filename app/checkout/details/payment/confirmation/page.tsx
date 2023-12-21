@@ -1,6 +1,6 @@
-import ConfirmationPage from "../../../../Components/Confirmation";
+import ConfirmationPage from "./ConfirmationPage";
 
-export default function Confirmation() {
+export default function Page() {
   return (
     <ConfirmationPage/>
   )

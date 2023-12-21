@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import Button from "./Button";
+import Button from "../../../../Components/Button";
 import toast from "react-hot-toast";
 import useUserPaymentData from "@/app/Others/hooks/useUserPaymentData";
 import { useRouter } from "next/navigation";
 
-const Confirmation = () => {
+const ConfirmationPage = () => {
   const { paymentMethod } = useUserPaymentData();
   const router = useRouter();
 
@@ -49,4 +49,4 @@ const Confirmation = () => {
   );
 };
 
-export default Confirmation;
+export default ConfirmationPage
