@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Button from "../../../../Components/Button";
+import Button from "./Button";
 import toast from "react-hot-toast";
 import useUserPaymentData from "@/app/Others/hooks/useUserPaymentData";
 import { useRouter } from "next/navigation";
