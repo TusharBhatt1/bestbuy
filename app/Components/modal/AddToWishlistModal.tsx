@@ -51,7 +51,7 @@ export default function AddToWishlistModal() {
   } else {
     body = (
       <div>
-        <p className="text-slate-500 text-sm">In which one you want to add ?</p>
+        <p className="text-slate-500 text-sm mb-2">In which one you want to add ?</p>
         {wishlist.all_wishlists.map((wishlist) => (
           <li
             className="text-bold hover:bg-slate-100 cursor-pointer"
