@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
-import { ProductType } from "../@types";
-import { getProducts } from "../Others/fetch/getProducts";
-import Heading from "./Heading";
+import { ProductType } from "../../@types";
+import { getProducts } from "../../Others/fetch/getProducts";
+import Heading from "../Heading";
 const DynamicProductCard = dynamic(() => import("./ProductCard"), {
   loading: () => <p className="h-20 w-20 bg-slate-400"></p>,
 });

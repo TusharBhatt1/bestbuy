@@ -1,12 +1,12 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from './Button';
-import { ProductType } from '../@types';
-import useCartDetails from '../Others/hooks/useCartDetails';
+import Button from '../Button';
+import { ProductType } from '../../@types';
+import useCartDetails from '../../Others/hooks/useCartDetails';
 import toast from 'react-hot-toast';
-import useAddToWishlist from '../Others/hooks/useAddToWishlist';
-import useCart from '../Others/hooks/useCartModal';
+import useAddToWishlist from '../../Others/hooks/useAddToWishlist';
+import useCart from '../../Others/hooks/useCartModal';
 
 export default function ProductCard({ product }: { product: ProductType }) {
   const { id, title, image, price } = product;

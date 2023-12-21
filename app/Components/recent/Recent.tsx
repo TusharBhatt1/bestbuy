@@ -1,5 +1,5 @@
 "use client"
-import useLRU from '../Others/hooks/useLRU'
+import useLRU from '../../Others/hooks/useLRU'
 import dynamic from 'next/dynamic'
 const DynamicRecentlyViewed=dynamic(()=>import('./RecentlyViewed'))
 

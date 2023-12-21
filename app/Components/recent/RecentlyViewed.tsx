@@ -1,5 +1,5 @@
 import React from "react";
-import { CacheItem } from "../Others/hooks/useLRU";
+import { CacheItem } from "../../Others/hooks/useLRU";
 import Link from "next/link";
 import Image from "next/image";
 import { useParams } from "next/navigation";
