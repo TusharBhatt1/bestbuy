@@ -23,7 +23,7 @@ export default function Banner() {
   ];
 
   return (
-    <section className=" py-20 bg-gray-900">
+    <section className=" py-10 bg-gray-900">
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="max-w-2xl xl:mx-auto xl:text-center">
             <Image 

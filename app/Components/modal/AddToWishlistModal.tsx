@@ -3,9 +3,9 @@ import Modal from "./Modal";
 import useWishListModal from "@/app/Others/hooks/useWishlistModal";
 import useAddToWishlist from "@/app/Others/hooks/useAddToWishlist";
 import toast from "react-hot-toast";
+import { JSX } from "react";
 
 export default function AddToWishlistModal() {
-  
   const wishlist = useWishListModal();
   const addToWishlistModal = useAddToWishlist();
 
@@ -16,25 +16,29 @@ export default function AddToWishlistModal() {
 
   const addToExisting = (listName: string) => {
     wishlist.setSelectedWishlist(listName);
-  
+
     //check if it already exists in the selected one
-    const selectWishlistItems= wishlist.all_wishlists.find((l)=>l.listName===listName)
-    const alreadyExists=selectWishlistItems.listItems.some((i)=>i.id===addToWishlistModal.productToAdd.id)
-    if(alreadyExists){
-      toast.error("Already Exists in the Wishlist")
+    const selectedWishlist = wishlist.selectedWishlist;
+    const selectWishlistItems = wishlist.all_wishlists.find(
+      (l) => l.listName === listName
+    );
+    const alreadyExists = selectWishlistItems.listItems.some(
+      (i) => i.id === addToWishlistModal.productToAdd.id
+    );
+    if (alreadyExists) {
+      toast.error("Already Exists in the Wishlist");
       wishlist.setSelectedWishlist("");
       addToWishlistModal.onClose();
-      return
-    }
-    else{
+      return;
+    } else {
       wishlist.addToSelectedWishlist(addToWishlistModal.productToAdd);
       wishlist.setSelectedWishlist("");
       toast.success("Added");
       addToWishlistModal.onClose();
     }
-   
   };
-  let body 
+  
+  let body: JSX.Element;
 
   if (wishlist.all_wishlists.length === 0) {
     body = (
@@ -44,21 +48,22 @@ export default function AddToWishlistModal() {
         </p>
       </div>
     );
+  } else {
+    body = (
+      <div>
+        <p className="text-slate-500 text-sm">In which one you want to add ?</p>
+        {wishlist.all_wishlists.map((wishlist) => (
+          <li
+            className="text-bold hover:bg-slate-100 cursor-pointer"
+            onClick={() => addToExisting(wishlist.listName)}
+            key={wishlist.listName}
+          >
+            {wishlist.listName}
+          </li>
+        ))}
+      </div>
+    );
   }
-
-  body= (
-    <div>
-      {wishlist.all_wishlists.map((wishlist) => (
-        <li
-          className=" text-bold   hover:bg-slate-100 cursor-pointer"
-          onClick={() => addToExisting(wishlist.listName)}
-          key={wishlist.listName}
-        >
-          {wishlist.listName}
-        </li>
-      ))}
-    </div>
-  );
 
   return (
     <Modal
