@@ -7,21 +7,24 @@ import Input from "../Input";
 import { useRouter } from "next/navigation";
 import useUserPaymentData from "../../Others/hooks/useUserPaymentData";
 import toast from "react-hot-toast";
-import { paymentSchema, PaymentSchemaType } from "../../Others/validations/paymentSchema";
-import { FaCreditCard, FaMobile } from 'react-icons/fa';
+import {
+  paymentSchema,
+  PaymentSchemaType,
+} from "../../Others/validations/paymentSchema";
+import { FaCreditCard, FaMobile } from "react-icons/fa";
 
 const UPIConfig = [
   {
     name: "holderName",
     label: "Holder Name",
     placeholder: "Enter Holder Name",
-    type: "text"
+    type: "text",
   },
   {
     name: "upiAddress",
     label: "UPI ID",
     placeholder: "Enter UPI ID",
-    type: "text"
+    type: "text",
   },
 ];
 
@@ -30,13 +33,13 @@ const cardsConfig = [
     name: "cardNumber",
     label: "Card Number",
     placeholder: "XXXX-XXXX-XXXX",
-    type: ""
+    type: "",
   },
   {
     name: "cvvNum",
     label: "CVV",
     placeholder: "Enter CVV",
-    type: "password"
+    type: "password",
   },
 ];
 
@@ -49,27 +52,29 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
 
   const {
     handleSubmit,
-    formState: { errors, isValid  },
+    formState: { errors, isValid },
     setValue,
     trigger,
-    clearErrors
+    clearErrors,
   } = useForm<PaymentSchemaType>({
-    resolver: yupResolver(paymentSchema)
+    resolver: yupResolver(paymentSchema),
   });
 
-  useEffect(() => {
-    if (userdetails.name === "") {
-      toast.error("Need details first");
-      // router.push("/checkout/details");
-    }
-  }, []);
+  const unAuth = () => {
+    router.push("/checkout/details");
+    toast.error("Need details first");
+    return;
+  }
+  if (userdetails.name === "") {
+    unAuth();
+  }
 
   const handleSelectMethod = (method: "UPI" | "CARDS") => {
     setPayMethod(method);
     setPaymentMethod(method);
     //@ts-ignore
     setValue("paymentMode", method);
-    clearErrors()
+    clearErrors();
   };
 
   const onSubmit = (data) => {
@@ -82,7 +87,9 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col shadow-lg rounded-md py-4  gap-4">
-        <p className="text-xl text-center font-bold text-red-500">Select Payment Method</p>
+        <p className="text-xl text-center font-bold text-red-500">
+          Select Payment Method
+        </p>
         <div className="flex justify-center gap-4 text-center">
           <div
             onClick={() => handleSelectMethod("UPI")}
@@ -103,7 +110,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
                 : "border-slate-400"
             }`}
           >
-            <FaCreditCard className="text-blue-500"/>
+            <FaCreditCard className="text-blue-500" />
             <span>CARDS</span>
           </div>
         </div>
@@ -121,9 +128,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
                 ...row,
               };
 
-              return (
-                <Input key={id} error={errors[name]?.message} {...prop} />
-              );
+              return <Input key={id} error={errors[name]?.message} {...prop} />;
             })}
           </div>
         )}
