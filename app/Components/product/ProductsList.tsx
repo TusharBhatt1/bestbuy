@@ -4,16 +4,19 @@ import { getProducts } from "../../Others/fetch/getProducts";
 import Heading from "../Heading";
 import { FiLoader } from "react-icons/fi";
 const DynamicProductCard = dynamic(() => import("./ProductCard"), {
-  loading: () => <p className="h-40 bg-slate-400">
-    <FiLoader
-  size={30}
-  className="flex justify-center items-center animate-spin"
-/></p>,
+  loading: () => (
+    <p className="h-40 w-40 bg-slate-400">
+      <FiLoader
+        size={30}
+        className="flex justify-center items-center animate-spin"
+      />
+    </p>
+  ),
 });
 
 export default async function ProductsList() {
   const products: ProductType[] = await getProducts();
-  
+
   return (
     <div className="flex mt-4 flex-col">
       <Heading title="World Of Fashion" />

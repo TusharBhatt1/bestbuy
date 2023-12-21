@@ -22,9 +22,9 @@ export default function Navbar() {
       }}
       className={`flex justify-around items-center text-blue-500 py-2 z-20 fixed w-full shadow-md`}
     >
-      <Link href="/">
+      <Link href="/" className="flex flex-col justify-center items-center">
         <Image priority src={theme.merchantLogo} width={40} height={40} alt="logo" />
-        <p className="text-xs sm:text-sm text-center">
+        <p className="font-bold text-xs sm:text-sm">
           {theme.merchantName}
         </p>
       </Link>

@@ -1,32 +1,27 @@
 "use client";
 import React, { useEffect } from "react";
-import Button from "../Button";
+import Button from "../../../../Components/Button";
 import toast from "react-hot-toast";
 import useUserPaymentData from "@/app/Others/hooks/useUserPaymentData";
 import { useRouter } from "next/navigation";
 
-
 const ConfirmationPage = () => {
- 
-  const {paymentMethod}=useUserPaymentData()
-  const router= useRouter()
-  useEffect(() => {
+  const { paymentMethod } = useUserPaymentData();
+  const router = useRouter();
 
-    if(paymentMethod==="" ){
-      router.push("/")
-      toast.error("Unauthorized")
-      return
-    }
-    setTimeout(() => {
-    
-      toast.success("ORDER PLACED")
-    }, 2000);
-  }, []);
+  const unAuth = () => {
+    router.push("/");
+    toast.error("Unauthorized");
+    return;
+  };
+  if (paymentMethod === "") {
+    unAuth();
+  }
 
-  const onClick=()=>router.push("/")
-  
+  const onClick = () => router.push("/");
+
   return (
-    <div className=" flex flex-col  items-center justify-center   h-[70vh]">
+    <div className=" flex flex-col  items-center justify-center h-[70vh]">
       <div className="zoomIn bg-green-500 p-8 rounded-full transform scale-110">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -43,19 +38,15 @@ const ConfirmationPage = () => {
           />
         </svg>
       </div>
-     
-      <div className=" fadeInAnimation flex flex-col gap-8 justify-center items-center ">
-      <h1 className=" text-2xl  text-center sm:text-3xl font-bold mt-6 text-green-500">
-        Thank you! Your order is successfully placed.
-      </h1>
-    <Button
-    label="Home"
-    onClick={onClick}
-    />
-    </div>
+
+      <div className=" amimation-bounce flex flex-col gap-8 justify-center items-center ">
+        <h1 className=" text-2xl  text-center sm:text-3xl font-bold mt-6 text-green-500">
+          Thank you! Your order is successfully placed.
+        </h1>
+        <Button label="Home" onClick={onClick} />
+      </div>
     </div>
   );
 };
 
 export default ConfirmationPage;
-

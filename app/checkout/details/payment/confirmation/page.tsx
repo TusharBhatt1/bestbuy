@@ -1,7 +1,7 @@
-import ConfirmationModal from "@/app/Components/modal/ConfirmationModal";
+import ConfirmationPage from "./ConfirmationPage";
 
 export default function Confirmation() {
   return (
-    <ConfirmationModal/>
+    <ConfirmationPage/>
   )
 }
