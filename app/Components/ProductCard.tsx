@@ -11,11 +11,12 @@ import useCart from '../Others/hooks/useCartModal';
 export default function ProductCard({ product }: { product: ProductType }) {
   const { id, title, image, price } = product;
   const addToWishlistModal=useAddToWishlist()
-  const { addItem, setFinalCart } = useCartDetails();
+  const { addItem, setFinalCart, } = useCartDetails();
   const cartModal=useCart()
 
   const handleAddToCart = () => {
     toast.success('Added To Cart');
+
     addItem(product);
     
     setFinalCart();

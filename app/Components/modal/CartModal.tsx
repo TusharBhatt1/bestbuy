@@ -83,7 +83,7 @@ bodyContent=(
  const footer=(
   <div>
     <hr/>
-    <p>Total Price : {totalPrice}</p>
+    <p>Total Price : Rs {totalPrice}</p>
   </div>
  )
   return (

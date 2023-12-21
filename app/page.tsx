@@ -7,7 +7,6 @@ import useThemeStore from "./Others/hooks/useTheme";
 export default async function Home() {
   return (
     <>
-    <Banner/>
     <div className="flex">
    <ProductsList/> 
    <div className="hidden sm:block">
