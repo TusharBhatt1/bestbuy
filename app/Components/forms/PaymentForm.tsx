@@ -60,7 +60,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   useEffect(() => {
     if (userdetails.name === "") {
       toast.error("Need details first")
-      // router.push("/checkout/details")
+      router.push("/checkout/details")
     }
   }, []);
 
