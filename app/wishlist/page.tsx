@@ -6,7 +6,7 @@ import { BiArrowBack } from 'react-icons/bi'
 export default function page() {
 
   return (
-  <div className='flex flex-col ml-10'>
+  <div className='flex w-full h-full flex-col ml-10'>
     <Link
     href={"/"}>
     <BiArrowBack size={20}/>

@@ -24,7 +24,7 @@ export default function Navbar() {
     >
       <Link href="/">
         <Image priority src={theme.merchantLogo} width={40} height={40} alt="logo" />
-        <p className="text-sm text-center">
+        <p className="text-xs sm:text-sm text-center">
           {theme.merchantName}
         </p>
       </Link>
