@@ -3,7 +3,6 @@ import Modal from '@/app/Components/modal/Modal';
 import { useRouter } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react';
 import useCartDetails from '../../Others/hooks/useCartDetails';
-import OrderDetail from '../OrderSummary';
 import OrderSummary from '../OrderSummary';
 import toast from 'react-hot-toast';
 import useUserPaymentData from '@/app/Others/hooks/useUserPaymentData';
@@ -31,6 +30,7 @@ export default function ConfirmationModal () {
     if(paymentMethod===""){
       router.push("/")
       toast.error("Unauthorized")
+      return
     }
     setTimeout(() => {
       setOrderPlaced(true); 
@@ -50,7 +50,7 @@ export default function ConfirmationModal () {
           <OrderSummary/>
           <hr/>
           <p className='text-center font-bold text-black'>Paid ₹ <span className='text-green '>{totalPrice}</span> </p>
-           <p className='text-center text-slate-400'>Arrival Date is 25/12/23</p>
+           <p className='text-center text-slate-400'>Arrival Date is 30/12/23</p>
         </div>
       </div>
     );

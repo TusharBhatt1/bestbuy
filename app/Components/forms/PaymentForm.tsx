@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Button from "./Button";
+import Button from "../Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Input from "./Input";
+import Input from "../Input";
 import { useRouter } from "next/navigation";
-import useUserPaymentData from "../Others/hooks/useUserPaymentData";
+import useUserPaymentData from "../../Others/hooks/useUserPaymentData";
 import toast from "react-hot-toast";
-import { paymentSchema, PaymentSchemaType} from "../Others/validations/paymentSchema";
+import { paymentSchema, PaymentSchemaType} from "../../Others/validations/paymentSchema";
 
 const UPIConfig=[
   {
@@ -29,7 +29,7 @@ const cardsConfig=[
   {
   name:"cardNumber",
   label:"Card Number",
-  placeholder:"XXXX-XXXX-XXXX-XXXX",
+  placeholder:"XXXX-XXXX-XXXX",
   type:""
   },
   {
@@ -50,7 +50,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   
   const {
     handleSubmit,
-    formState: { errors },
+    formState: { errors,isValid },
     setValue,
     trigger
   } = useForm<PaymentSchemaType>({
@@ -126,10 +126,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
 
   const onSubmit = (data) => {
     
-    console.log(data)
-   
     setIsProcessing(true);
-
     setTimeout(() => {
       router.push("/checkout/details/payment/confirmation");
     }, 2000);
@@ -167,7 +164,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
         <Button
           type="submit" 
           label={`Pay ₹${totalPrice.toFixed()}`}
-          disabled={payMethod === "" }
+          disabled={isValid ? false : true}
           isProcessing={isProcessing}
         />
       </div>

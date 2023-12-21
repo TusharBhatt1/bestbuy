@@ -10,10 +10,10 @@ export default function OrderSummary() {
     <div className="flex">
       <div className=" flex flex-col items-start  flex-1">
         <p className="font-bold text-center ">User Details</p>
-        <div className="flex flex-col gap-2 text-sm text-green-500 mt-2">
-          <p>Name: {userdetails.name}</p>
-          <p>Address: {userdetails.address}</p>
-          <p>Contact: {userdetails.contact}</p>
+        <div className="flex flex-col gap-2 text-sm  mt-2">
+          <p>Name:    <span className="text-green-500"> {userdetails.name}</span></p>
+          <p>Address: <span className="text-green-500">{userdetails.address}</span></p>
+          <p>Contact: <span className="text-green-500">{userdetails.contact}</span></p>
         </div>
       </div>
       <div className="flex-1">

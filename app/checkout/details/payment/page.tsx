@@ -1,7 +1,7 @@
 "use client";
 import Heading from "@/app/Components/Heading";
 import OrderSummary from "@/app/Components/OrderSummary";
-import PaymentForm from "@/app/Components/PaymentForm";
+import PaymentForm from "@/app/Components/forms/PaymentForm";
 import useCartDetails from "@/app/Others/hooks/useCartDetails"
 import Link from "next/link";
 import React, { useState } from "react";

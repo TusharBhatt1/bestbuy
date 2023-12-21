@@ -2,8 +2,13 @@ import dynamic from "next/dynamic";
 import { ProductType } from "../../@types";
 import { getProducts } from "../../Others/fetch/getProducts";
 import Heading from "../Heading";
+import { FiLoader } from "react-icons/fi";
 const DynamicProductCard = dynamic(() => import("./ProductCard"), {
-  loading: () => <p className="h-20 w-20 bg-slate-400"></p>,
+  loading: () => <p className="h-40 bg-slate-400">
+    <FiLoader
+  size={30}
+  className="flex justify-center items-center animate-spin"
+/></p>,
 });
 
 export default async function ProductsList() {

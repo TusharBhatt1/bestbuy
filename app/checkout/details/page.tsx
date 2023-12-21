@@ -1,5 +1,5 @@
 import Heading from '@/app/Components/Heading'
-import UserDetailsForm from './UserDetailsForm'
+import UserDetailsForm from '../../Components/forms/UserDetailsForm'
 
 export default function page() {
   return (

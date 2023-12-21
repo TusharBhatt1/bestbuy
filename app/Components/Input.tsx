@@ -24,6 +24,7 @@ const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   const Icon: any = icon;
+  
   return (
     <div className="flex flex-col mt-4">
       <label
