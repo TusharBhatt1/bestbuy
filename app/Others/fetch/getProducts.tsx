@@ -7,7 +7,7 @@ export async function getProducts() {
     return data;
   }
   catch{
-    toast.error("Unable to fetch data , kindly refresh")
+    toast.error("Unable to fetch data , check internet")
     return [];
   }
 

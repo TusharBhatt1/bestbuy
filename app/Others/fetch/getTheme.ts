@@ -10,7 +10,7 @@ export async function getTheme() {
     toast.success("Switched to Merchant Theme")
     return data;
   } catch (e) {
-    toast.error("Error, Merchant Theme Not applied");
+    toast.error("Merchant Theme Not applied, check internet");
     return fallbackTheme;
   }
 }

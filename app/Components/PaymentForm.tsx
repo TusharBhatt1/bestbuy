@@ -45,6 +45,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   const [payMethod, setPayMethod] = useState("");
   const { userdetails } = useUserPaymentData();
   const [isProcessing, setIsProcessing] = useState(false);
+  const {setPaymentMethod}=useUserPaymentData()
   const router = useRouter()
   
   const {
@@ -116,6 +117,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
 
   const handleSelectMethod = (method:"UPI" | "CARDS") => {
     setPayMethod(method);
+    setPaymentMethod(method)
     console.log(method)
     //@ts-ignore
     setValue("paymentMode",method)
@@ -125,18 +127,18 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   const onSubmit = (data) => {
     
     console.log(data)
-    alert("submitted")
-    // setIsProcessing(true);
+   
+    setIsProcessing(true);
 
-    // setTimeout(() => {
-    //   router.push("/checkout/details/payment/confirmation");
-    // }, 2000);
+    setTimeout(() => {
+      router.push("/checkout/details/payment/confirmation");
+    }, 2000);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex fo flex-col gap-4">
-        <p className="text-xl text-center font-bold">Select Payment Method</p>
+        <p className="text-xl text-center font-bold text-red-500 my-2">Select Payment Method</p>
         <div className="flex justify-center gap-10 text-center">
           <div
             onClick={() => handleSelectMethod("UPI")}
@@ -165,7 +167,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
         <Button
           type="submit" 
           label={`Pay ₹${totalPrice.toFixed()}`}
-          // disabled={payMethod === "" || formSubmitted}
+          disabled={payMethod === "" }
           isProcessing={isProcessing}
         />
       </div>

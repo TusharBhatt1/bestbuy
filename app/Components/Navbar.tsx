@@ -20,11 +20,11 @@ export default function Navbar() {
       style={{
         background: theme.theme["--foreground"],
       }}
-      className={`flex justify-around items-center text-blue-400 py-2 z-20 fixed w-full shadow-md`}
+      className={`flex justify-around items-center text-blue-500 py-2 z-20 fixed w-full shadow-md`}
     >
       <Link href="/">
         <Image priority src={theme.merchantLogo} width={40} height={40} alt="logo" />
-        <p className="text-xs font-bold  font-sans text-center">
+        <p className="text-sm text-center">
           {theme.merchantName}
         </p>
       </Link>

@@ -35,9 +35,10 @@ const onSubmit=()=>{
   if(cartSize===0){
      toast("Add Products")
      router.push("/")
+     cartModal.onClose()
   }
   else {
-    toast("Almost there!")
+  
     router.push("/checkout")
     cartModal.onClose()
   }

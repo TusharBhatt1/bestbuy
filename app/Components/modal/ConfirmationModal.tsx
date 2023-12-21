@@ -6,10 +6,13 @@ import useCartDetails from '../../Others/hooks/useCartDetails';
 import OrderDetail from '../OrderSummary';
 import OrderSummary from '../OrderSummary';
 import toast from 'react-hot-toast';
+import useUserPaymentData from '@/app/Others/hooks/useUserPaymentData';
 
 export default function ConfirmationModal () {
   const router = useRouter();
   const {finalCart,resetFinalCart}=useCartDetails()
+
+  const {paymentMethod}=useUserPaymentData()
 
   const [orderPlaced, setOrderPlaced] = useState(false); 
 
@@ -24,16 +27,23 @@ export default function ConfirmationModal () {
   const totalPrice=finalCart.reduce((a,b)=>a+b.price,0).toFixed()
 
   useEffect(() => {
+
+    if(paymentMethod===""){
+      router.push("/")
+      toast.error("Unauthorized")
+    }
     setTimeout(() => {
       setOrderPlaced(true); 
       toast.success("ORDER PLACED")
     }, 2000);
   }, []);
 
+
+
   let body;
   if (orderPlaced===true) {
     body = (
-      <div className='zoomIn flex flex-col justify-center items-center gap-2'>
+      <div className='flex flex-col justify-center items-center gap-2'>
         <p className='text-green-500  font-extrabold text-center'>CONGRATULATIONS</p>
 
         <div className='flex flex-col justify-center items-center gap-4'>
