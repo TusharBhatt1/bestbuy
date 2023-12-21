@@ -8,9 +8,9 @@ export default function OrderSummary() {
 
   return (
     <div className="flex">
-      <div className=" flex flex-col  items-start  flex-1">
+      <div className=" flex flex-col items-start  flex-1">
         <p className="font-bold text-center ">User Details</p>
-        <div className="flex flex-col gap-2 mt-2">
+        <div className="flex flex-col gap-2 text-sm text-green-500 mt-2">
           <p>Name: {userdetails.name}</p>
           <p>Address: {userdetails.address}</p>
           <p>Contact: {userdetails.contact}</p>
@@ -22,7 +22,7 @@ export default function OrderSummary() {
         </p>
         <div className="flex flex-col mt-2">
           {finalCart.map((item) => (
-            <li className="text-xs text-slate-500" key={item.id}>
+            <li className="text-sm text-blue-500" key={item.id}>
               {item.title}({item.quantity})
             </li>
           ))}

@@ -10,7 +10,9 @@ export default async function Home() {
     <Banner/>
     <div className="flex">
    <ProductsList/> 
+   <div className="hidden sm:block">
    <WishList/>
+   </div>
    </div>
    </>
   )

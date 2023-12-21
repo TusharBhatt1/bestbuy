@@ -1,20 +1,71 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "./Input";
 import { useRouter } from "next/navigation";
 import useUserPaymentData from "../Others/hooks/useUserPaymentData";
+import toast from "react-hot-toast";
+import { paymentSchema, PaymentSchemaType} from "../Others/validations/paymentSchema";
+
+const UPIConfig=[
+  {
+  name:"holdername",
+  label:"Holder Name",
+  placeholder:"Enter Holder Name",
+  type:"text"
+  },
+  {
+  name:"upiAddress",
+  label:"UPI ID",
+  placeholder:"Enter UPI ID",
+  type:"text"
+  },
+
+]
+const cardsConfig=[
+  {
+  name:"holdername",
+  label:"Holder Name",
+  placeholder:"Enter Holder Name",
+  type:"text"
+  },
+  {
+  name:"Account Number",
+  label:"Account Number",
+  placeholder:"",
+  type:""
+  },
+  {
+  name:"bankName",
+  label:"UPI ID",
+  placeholder:"Enter UPI ID",
+  type:"text"
+  },
+
+]
 
 export default function PaymentMethod({ totalPrice }: { totalPrice: number }) {
   const [payMethod, setPayMethod] = useState("");
   const { userdetails } = useUserPaymentData();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const router = useRouter();
+  const router = useRouter()
+  
+  const {
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    trigger
+  } = useForm<PaymentSchemaType>({
+    resolver: yupResolver(paymentSchema)
+  });
 
   useEffect(() => {
     if (userdetails.name === "") {
-      alert("Kindly fill details");
+      toast.error("Need details first")
+      // router.push("/checkout/details")
     }
   }, []);
 
@@ -23,11 +74,23 @@ export default function PaymentMethod({ totalPrice }: { totalPrice: number }) {
   if (payMethod === "UPI") {
     payBody = (
       <div className="flex gap-4 justify-center">
-        <Input name="" required placeholder=" Mr John" label="UPI" />
-        <Input name="" required placeholder=" Mr John" label="User Name" />
-        <Input name="" required placeholder=" John@sbi123" label="UPI ID" />
+          {UPIConfig?.map((row, id) => {
+          const name: any = row?.name;
+          const prop = {
+            onChange: (e: any) => {
+              setValue(name, e?.target?.value);
+              trigger(name)
+            },
+            ...row,
+          };
+
+          return (
+            <Input key={id} error={errors[name]?.message} {...prop} />
+          );
+        })}
       </div>
-    );
+       )
+    ;
   }
 
   if (payMethod === "CARDS") {
@@ -58,23 +121,27 @@ export default function PaymentMethod({ totalPrice }: { totalPrice: number }) {
     );
   }
 
-  const handleSelectMethod = (method: string) => {
+  const handleSelectMethod = (method:"UPI" | "CARDS") => {
     setPayMethod(method);
+    console.log(method)
+    setValue("paymentMode",method)
+
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setIsProcessing(true);
+  const onSubmit = (data) => {
+    
+    console.log(data)
+    alert("submitted")
+    // setIsProcessing(true);
 
-    setTimeout(() => {
-      router.push("/checkout/details/payment/confirmation");
-    }, 2000);
+    // setTimeout(() => {
+    //   router.push("/checkout/details/payment/confirmation");
+    // }, 2000);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex fo flex-col gap-4">
         <p className="text-xl text-center font-bold">Select Payment Method</p>
         <div className="flex justify-center gap-10 text-center">
           <div
