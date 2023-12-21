@@ -150,6 +150,7 @@ export default function WishlistModal() {
   let bodyContent = (
     <div
       className="
+
         flex flex-col
         gap-4
         "
@@ -201,9 +202,9 @@ export default function WishlistModal() {
   if (step === STEPS.confirmation) {
     bodyContent = (
       <div>
-        <p className=" mb-2 text-center text-bold">Name: {currentWishList.listName}</p>
+        <p className=" mb-2 text-center font-bold"><span className="text-slate-500">Name :</span> {currentWishList.listName}</p>
         <hr></hr>
-        <p className="mb-2 text-bold">Selected Items:</p>
+        <p className="mb-2 font-bold"><span className="text-slate-500">Selected Items :</span></p>
         <div>
           <ul className="list-disc">
             {Object.keys(selected).map(

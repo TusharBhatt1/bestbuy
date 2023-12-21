@@ -34,7 +34,19 @@ export default function AddToWishlistModal() {
     }
    
   };
-  let body = (
+  let body 
+
+  if (wishlist.all_wishlists.length === 0) {
+    body = (
+      <div>
+        <p className="text-sm text-slate-400">
+          No wishlist, kindly create new.
+        </p>
+      </div>
+    );
+  }
+
+  body= (
     <div>
       {wishlist.all_wishlists.map((wishlist) => (
         <li
@@ -47,15 +59,6 @@ export default function AddToWishlistModal() {
       ))}
     </div>
   );
-  if (wishlist.all_wishlists.length === 0) {
-    body = (
-      <div>
-        <p className="text-sm text-slate-400">
-          No wishlist, kindly create new.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <Modal
