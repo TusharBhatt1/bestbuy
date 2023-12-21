@@ -41,7 +41,7 @@ const cardsConfig=[
 
 ]
 
-export default function PaymentMethod({ totalPrice }: { totalPrice: number }) {
+export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   const [payMethod, setPayMethod] = useState("");
   const { userdetails } = useUserPaymentData();
   const [formSubmitted, setFormSubmitted] = useState(false);

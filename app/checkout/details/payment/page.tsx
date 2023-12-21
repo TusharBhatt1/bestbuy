@@ -1,7 +1,7 @@
 "use client";
 import Heading from "@/app/Components/Heading";
 import OrderSummary from "@/app/Components/OrderSummary";
-import PaymentMethod from "@/app/Components/PaymentForm";
+import PaymentForm from "@/app/Components/PaymentForm";
 import useCartDetails from "@/app/Others/hooks/useCartDetails"
 import Link from "next/link";
 import React, { useState } from "react";
@@ -21,7 +21,7 @@ export default function Payment() {
         <hr />
         <OrderSummary />
         <hr />
-        <PaymentMethod totalPrice={totalPrice} />
+        <PaymentForm totalPrice={totalPrice} />
       </div>
     </div>
   );

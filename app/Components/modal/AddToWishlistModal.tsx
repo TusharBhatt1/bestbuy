@@ -18,10 +18,9 @@ export default function AddToWishlistModal() {
     wishlist.setSelectedWishlist(listName);
 
     //check if it already exists in the selected one
-    const selectedWishlist = wishlist.selectedWishlist;
     const selectWishlistItems = wishlist.all_wishlists.find(
       (l) => l.listName === listName
-    );
+    )
     const alreadyExists = selectWishlistItems.listItems.some(
       (i) => i.id === addToWishlistModal.productToAdd.id
     );
