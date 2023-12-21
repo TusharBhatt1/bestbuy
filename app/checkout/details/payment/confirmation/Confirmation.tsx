@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import useUserPaymentData from "@/app/Others/hooks/useUserPaymentData";
 import { useRouter } from "next/navigation";
 
-const ConfirmationPage = () => {
+const Confirmation = () => {
   const { paymentMethod } = useUserPaymentData();
   const router = useRouter();
 
@@ -49,4 +49,4 @@ const ConfirmationPage = () => {
   );
 };
 
-export default ConfirmationPage;
+export default Confirmation;

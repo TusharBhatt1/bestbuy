@@ -1,4 +1,4 @@
-import ConfirmationPage from "./ConfirmationPage";
+import ConfirmationPage from "./Confirmation";
 
 export default function Confirmation() {
   return (
