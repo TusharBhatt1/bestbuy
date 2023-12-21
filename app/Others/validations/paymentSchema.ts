@@ -11,13 +11,13 @@ export const paymentSchema = Yup.object().shape({
       .required('UPI address is required'),
   }),
   //@ts-ignore
-  bankName: Yup.string().when('paymentMode', {
+  cvvNum: Yup.string().when('paymentMode', {
     is: (paymentMode) => paymentMode === 'CARDS',
-    then: Yup.string().required('Bank name is required'),
+    then: Yup.string().min(3).max(3).required('CVV is required'),
   }),
   //@ts-ignore
   cardNumber: Yup.string().when('paymentMode', {
-    is: (paymentMode) => paymentMode === 'CARD',
+    is: (paymentMode) => paymentMode === 'CARDS',
     then: Yup.string()
       .matches(/^\d{16}$/, 'Invalid card number')
       .required('Card number is required'),

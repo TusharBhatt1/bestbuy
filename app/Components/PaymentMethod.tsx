@@ -11,7 +11,7 @@ import { paymentSchema, PaymentSchemaType} from "../Others/validations/paymentSc
 
 const UPIConfig=[
   {
-  name:"holdername",
+  name:"holderName",
   label:"Holder Name",
   placeholder:"Enter Holder Name",
   type:"text"
@@ -25,23 +25,18 @@ const UPIConfig=[
 
 ]
 const cardsConfig=[
+ 
   {
-  name:"holdername",
-  label:"Holder Name",
-  placeholder:"Enter Holder Name",
-  type:"text"
-  },
-  {
-  name:"Account Number",
-  label:"Account Number",
-  placeholder:"",
+  name:"cardNumber",
+  label:"Card Number",
+  placeholder:"XXXX-XXXX-XXXX-XXXX",
   type:""
   },
   {
-  name:"bankName",
-  label:"UPI ID",
-  placeholder:"Enter UPI ID",
-  type:"text"
+  name:"cvvNum",
+  label:"CVV",
+  placeholder:"Enter CVV",
+  type:"password"
   },
 
 ]
@@ -75,11 +70,13 @@ export default function PaymentMethod({ totalPrice }: { totalPrice: number }) {
     payBody = (
       <div className="flex gap-4 justify-center">
           {UPIConfig?.map((row, id) => {
-          const name: any = row?.name;
+          const name:any = row?.name;
           const prop = {
             onChange: (e: any) => {
-              setValue(name, e?.target?.value);
+              //@ts-ignore
+              setValue(name, e?.target?.value);          
               trigger(name)
+
             },
             ...row,
           };
@@ -97,25 +94,22 @@ export default function PaymentMethod({ totalPrice }: { totalPrice: number }) {
     payBody = (
       <div className="flex flex-col  justify-center items-center text-center">
         <div className="flex gap-4">
-          <Input name="" required placeholder="Mr John " label="Holder Name" />
-          <Input
-            name=""
-            required
-            type="number"
-            placeholder="1234 5678 4321 "
-            label="Account Number"
-          />
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <label>Bank</label>
-          <select className="w-40 p-1 border-black border-2">
-            <option disabled value="">
-              Select a Bank
-            </option>
-            <option>SBI</option>
-            <option>UCO</option>
-            <option>PNB</option>
-          </select>
+        {cardsConfig?.map((row, id) => {
+          const name:any = row?.name;
+          const prop = {
+            onChange: (e: any) => {
+              //@ts-ignore
+              setValue(name, e?.target?.value);          
+              trigger(name)
+
+            },
+            ...row,
+          };
+
+          return (
+            <Input key={id} error={errors[name]?.message} {...prop} />
+          );
+        })}
         </div>
       </div>
     );
@@ -124,6 +118,7 @@ export default function PaymentMethod({ totalPrice }: { totalPrice: number }) {
   const handleSelectMethod = (method:"UPI" | "CARDS") => {
     setPayMethod(method);
     console.log(method)
+    //@ts-ignore
     setValue("paymentMode",method)
 
   };
@@ -169,9 +164,9 @@ export default function PaymentMethod({ totalPrice }: { totalPrice: number }) {
         {payBody}
 
         <Button
-          type="submit"
+          type="submit" 
           label={`Pay ₹${totalPrice.toFixed()}`}
-          disabled={payMethod === "" || formSubmitted}
+          // disabled={payMethod === "" || formSubmitted}
           isProcessing={isProcessing}
         />
       </div>

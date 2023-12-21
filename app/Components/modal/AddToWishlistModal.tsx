@@ -16,6 +16,16 @@ export default function AddToWishlistModal() {
 
   const addToExisting = (listName: string) => {
     wishlist.setSelectedWishlist(listName);
+
+    //check if it already exists in the selected one
+    const particularWishlist=wishlist.all_wishlists.find((w)=>w.listName===wishlist.selectedWishlist)
+    const alreadyExists=particularWishlist.listItems.some((item)=>item.title===listName)
+    if(alreadyExists){
+      toast.error("Already Exists in the Wishlist")
+      wishlist.setSelectedWishlist("");
+      addToWishlistModal.onClose();
+      return
+    }
     wishlist.addToSelectedWishlist(addToWishlistModal.productToAdd);
     wishlist.setSelectedWishlist("");
     toast.success("Added");

@@ -38,10 +38,10 @@ export default function ProductDetails({ details }: { details: ProductType | und
           {/* right */}
           <div className="flex flex-col gap-10 px-2 md:w-1/2 justify-between">
             <Heading title={details.title} />
-            <p className="text-sm text-slate-400 text-center">{details.description}</p>
+            <p className="text-sm text-slate-400 text-center">{details?.description}</p>
             <div className="flex justify-center items-center">
-              <Rating rate={details.rating.rate} />
-              <span className="ml-2">{`(${details.rating.count})`}</span>
+              <Rating rate={details?.rating?.rate} />
+              <span className="ml-2">{`(${details?.rating?.count})`}</span>
             </div>
             <div className="flex justify-center">
               <Button label="Add To Cart" onClick={handleAddToCart} />
