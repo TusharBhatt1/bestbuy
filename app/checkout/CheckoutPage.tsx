@@ -42,7 +42,7 @@ export default function CheckoutPage({
     return (
       <div className="flex flex-col items-center justify-center h-[40vh]">
         <p className="text-lg font-semibold mb-2">Your Cart is Empty</p>
-        <Link href="/products">
+        <Link href="/">
           <p className="text-blue-500 underline cursor-pointer">
             Explore Products
           </p>
