@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
 font-family: Georgia, 'Times New Roman', Times, serif;
 
@@ -36,6 +37,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 @keyframes zoomIn {
   from {
+    
     transform: scale(0);
   }
   to {

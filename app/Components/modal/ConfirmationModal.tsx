@@ -1,89 +1,61 @@
 "use client";
-import Modal from '@/app/Components/modal/Modal';
-import { useRouter } from 'next/navigation';
-import React, { useCallback, useEffect, useState } from 'react';
-import useCartDetails from '../../Others/hooks/useCartDetails';
-import OrderSummary from '../OrderSummary';
-import toast from 'react-hot-toast';
-import useUserPaymentData from '@/app/Others/hooks/useUserPaymentData';
+import React, { useEffect } from "react";
+import Button from "../Button";
+import toast from "react-hot-toast";
+import useUserPaymentData from "@/app/Others/hooks/useUserPaymentData";
+import { useRouter } from "next/navigation";
 
-export default function ConfirmationModal () {
-  const router = useRouter();
-  const {finalCart,resetFinalCart}=useCartDetails()
 
+const ConfirmationPage = () => {
+ 
   const {paymentMethod}=useUserPaymentData()
-
-  const [orderPlaced, setOrderPlaced] = useState(false); 
-
-  const onSubmit = useCallback(() => {
-   
-    setOrderPlaced(true)
-    router.push("/") 
-    resetFinalCart()
-
-  }, []);
-   
-  const totalPrice=finalCart.reduce((a,b)=>a+b.price,0).toFixed()
-
+  const router= useRouter()
   useEffect(() => {
 
-    if(paymentMethod===""){
+    if(paymentMethod==="" ){
       router.push("/")
       toast.error("Unauthorized")
       return
     }
     setTimeout(() => {
-      setOrderPlaced(true); 
+    
       toast.success("ORDER PLACED")
     }, 2000);
   }, []);
 
-
-
-  let body;
-  if (orderPlaced===true) {
-    body = (
-      <div className='flex flex-col justify-center items-center gap-2'>
-        <p className='text-green-500  font-extrabold text-center'>CONGRATULATIONS</p>
-
-        <div className='flex flex-col justify-center items-center gap-4'>
-          <OrderSummary/>
-          <hr/>
-          <p className='text-center font-bold text-black'>Paid ₹ <span className='text-green '>{totalPrice}</span> </p>
-           <p className='text-center text-slate-400'>Arrival Date is 30/12/23</p>
-        </div>
-      </div>
-    );
-  } 
-  if(orderPlaced===false) {
-    body = (
-      <div className='flex justify-center relative items-center'>
-        <div className='rounded-full rotate h-40 w-40 border-t-4 border-black'></div>
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-          <p className='text-center text-sm'>Placing Your Order</p>
-        </div>
-      </div>
-    );
-  }
-
-  if(finalCart.length===0 && !orderPlaced){
-   
-    body=(
-      <div>
-        <p className='font-bold text-center text-red-600 text-2xl '>Cart Is Empty</p>
-      </div>
-    )
-  }
-
+  const onClick=()=>router.push("/")
+  
   return (
-    <Modal
-      title={orderPlaced ? "Order Placed" : ""}
-      disabled={!orderPlaced}
-      isOpen
-      actionLabel={orderPlaced ? "Move to Home Page" :" Almost there"}
-      onSubmit={onSubmit}
-      body={body}
-      onClose={onSubmit}
+    <div className=" flex flex-col  items-center justify-center   h-[70vh]">
+      <div className="zoomIn bg-green-500 p-8 rounded-full transform scale-110">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="white"
+          className="h-16 w-16 animate__animated animate__heartBeat"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+      </div>
+     
+      <div className=" fadeInAnimation flex flex-col gap-8 justify-center items-center ">
+      <h1 className=" text-2xl  text-center sm:text-3xl font-bold mt-6 text-green-500">
+        Thank you! Your order is successfully placed.
+      </h1>
+    <Button
+    label="Home"
+    onClick={onClick}
     />
+    </div>
+    </div>
   );
-}
+};
+
+export default ConfirmationPage;
+
