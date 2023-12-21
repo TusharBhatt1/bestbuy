@@ -36,11 +36,7 @@ export default function WishListDetails({
     setFinalCart();
     toast.success("Added to cart");
   };
-  const sortItemsByPrice = (items: any[]) => {
-    return items
-      .slice()
-      .sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-  };
+ 
 
   return (
     <div className="mt-20 flex w-[80vw]  md:w-[35vw] ml-2 sm:ml-4 mr-4 shadow-md  p-2 h-[50vh] md:h-[40vh] flex-col justify-center items-center">
@@ -74,7 +70,7 @@ export default function WishListDetails({
                       {expandedWishlist === index ? "▲" : "▼"}
                     </button>
                     <button
-                      className="text-sm text-red-500"
+                      className="text-sm text-red-500 mx-4"
                       onClick={() => handleDeleteWishlist(wishlist.listName)}
                     >
                       Remove
@@ -82,7 +78,7 @@ export default function WishListDetails({
                   </div>
                   {expandedWishlist === index && (
                     <ul className="list-disc">
-                      {sortItemsByPrice(wishlist.listItems).map(
+                      {wishlist.listItems.map(
                         (item: ProductType) => (
                           <div
                             className="flex gap-2 px-2 items-center"

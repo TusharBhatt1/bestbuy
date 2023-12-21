@@ -33,11 +33,11 @@ export default function ProductDetails({ details }: { details: ProductType | und
         <div className="flex flex-col justify-around items-center md:flex-row">
           {/* left */}
           <div className='flex-col bg-slate-400'>
-            <Image height={120} width={120} src={details.image} alt={details.title} />
+            <Image height={120} width={120} src={details?.image} alt={details?.title} />
           </div>
           {/* right */}
           <div className="flex flex-col gap-10 px-2 md:w-1/2 justify-between">
-            <Heading title={details.title} />
+            <Heading title={details?.title} />
             <p className="text-sm text-slate-400 text-center">{details?.description}</p>
             <div className="flex justify-center items-center">
               <Rating rate={details?.rating?.rate} />
