@@ -18,12 +18,13 @@ export default function ConfirmationPage(){
     unAuth();
   }
 
-  const onClick = () => router.push("/");
-
+  const onClick = () => {
+    router.push("/");
+  }
   return (
     <div className=" flex flex-col  items-center justify-center h-[70vh]">
       <div className="zoomIn bg-green-500 p-8 rounded-full transform scale-110">
-        <svg
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -36,7 +37,7 @@ export default function ConfirmationPage(){
             stroke-width="2"
             d="M5 13l4 4L19 7"
           />
-        </svg>
+        </svg> */}
       </div>
 
       <div className=" amimation-bounce flex flex-col gap-8 justify-center items-center ">
