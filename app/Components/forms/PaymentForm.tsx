@@ -60,14 +60,16 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
     resolver: yupResolver(paymentSchema),
   });
 
+  useEffect(() => {
+    if (userdetails.name === "") {
+      unAuth();
+    }
+  }, []);
   const unAuth = () => {
     router.push("/checkout/details");
     toast.error("Need details first");
     return;
-  }
-  if (userdetails.name === "") {
-    unAuth();
-  }
+  };
 
   const handleSelectMethod = (method: "UPI" | "CARDS") => {
     setPayMethod(method);

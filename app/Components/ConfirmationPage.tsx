@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@/app/Components/Button";
 import toast from "react-hot-toast";
 import useUserPaymentData from "@/app/Others/hooks/useUserPaymentData";
@@ -8,15 +8,19 @@ import { useRouter } from "next/navigation";
 export default function ConfirmationPage(){
   const { paymentMethod } = useUserPaymentData();
   const router = useRouter();
+   
 
+  useEffect(()=>{
+    if (paymentMethod === "") {
+     unAuth();
+    }
+  },[])
   const unAuth = () => {
     router.push("/");
     toast.error("Unauthorized");
     return;
   };
-  if (paymentMethod === "") {
-    unAuth();
-  }
+  
 
   const onClick = () => {
     router.push("/");
