@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useMemo, useState,use } from "react";
+import React, { useCallback, useEffect, useMemo, useState, use } from "react";
 import Modal from "./Modal";
 import useWishListModal from "@/app/Others/hooks/useWishlistModal";
 import { ProductType } from "@/app/@types";
@@ -15,9 +15,9 @@ enum STEPS {
   confirmation = 2,
 }
 
-const dataPromise=getProducts()
+const dataPromise = getProducts();
 export default function WishlistModal() {
-  const allProducts=use(dataPromise)
+  const allProducts = use(dataPromise);
   const wishListModal = useWishListModal();
   const [currentWishList, setCurrentWishList] = useState({
     listName: "",
@@ -67,7 +67,7 @@ export default function WishlistModal() {
   const onModalClose = () => {
     setCurrentWishList({ listName: "", listItems: [] });
     setStep(STEPS.name);
-    setIsError(false)
+    setIsError(false);
     wishListModal.onClose();
     setSelected({});
   };
@@ -76,14 +76,15 @@ export default function WishlistModal() {
     if (step !== STEPS.confirmation) {
       if (
         wishListModal.all_wishlists.some(
-          (list) => list.listName === currentWishList.listName.replace(/\s/g,"")
+          (list) =>
+            list.listName === currentWishList.listName.replace(/\s/g, "")
         )
       ) {
         setIsError(true);
         setErrorMsg("Wishlist with same name already exists");
         return;
       }
-      if (currentWishList.listName.length === 0) {
+      if (currentWishList.listName.replace(/\s/g,"") .length === 0) {
         setIsError(true);
         setErrorMsg("Cannot Be Empty");
         return;
@@ -202,16 +203,28 @@ export default function WishlistModal() {
   if (step === STEPS.confirmation) {
     bodyContent = (
       <div>
-        <p className=" mb-2 text-center font-bold"><span className="text-slate-500">Name :</span> {currentWishList.listName}</p>
+        <p className=" mb-2 text-center font-bold">
+          <span className="text-slate-500">Name :</span>{" "}
+          {currentWishList.listName}
+        </p>
         <hr></hr>
-        <p className="mb-2 font-bold"><span className="text-slate-500">Selected Items :</span></p>
-        <div>
-          <ul className="list-disc">
-            {Object.keys(selected).map(
-              (item) => selected[item] && <li key={item}>{item}</li>
-            )}
-          </ul>
-        </div>
+        <p className="mb-2 font-bold">
+          <span className="text-slate-500">Selected Items :</span>
+        </p>
+        
+         {Object.keys(selected).length === 0 ?(
+          <p className="text-sm text-slate-300 font-italic">None</p>
+         )
+         :
+            <div>
+            <ul className="list-disc">
+              {Object.keys(selected).map(
+                (item) => selected[item] && <li key={item}>{item}</li>
+              )}
+            </ul>
+            </div>
+          }
+        
       </div>
     );
   }

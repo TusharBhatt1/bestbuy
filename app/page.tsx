@@ -2,6 +2,7 @@ import ProductsList from "./Components/product/ProductsList";
 import WishList from "./Components/wishlistSideBox/WishList";
 
 export default async function Home() {
+   
   return (
     <>
     <div className="flex">
