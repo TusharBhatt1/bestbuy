@@ -1,5 +1,5 @@
 import React from 'react'
-import PaymentPage from '../../../Components/PaymentPage'
+import PaymentPage from '@/app/Components/PaymentPage'
 
 export default function page() {
   return (
