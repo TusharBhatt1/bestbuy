@@ -4,7 +4,6 @@ import Modal from "./Modal";
 import useWishListModal from "@/app/Others/hooks/useWishlistModal";
 import { ProductType } from "@/app/@types";
 import Input from "../Input";
-import useCartDetails from "@/app/Others/hooks/useCartDetails";
 import toast from "react-hot-toast";
 import useAddToWishlist from "@/app/Others/hooks/useAddToWishlist";
 import { getProducts } from "@/app/Others/fetch/getProducts";

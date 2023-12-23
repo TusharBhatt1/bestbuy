@@ -1,5 +1,5 @@
 import React from 'react'
-import ConfirmationPage from './ConfirmationPage'
+import ConfirmationPage from '../../../../Components/ConfirmationPage'
 
 export default function page() {
   return (
