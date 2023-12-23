@@ -7,7 +7,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 
-export default function Payment() {
+export default function Page() {
   const { finalCart } = useCartDetails();
   const totalPrice = finalCart.reduce((a, b) => a + b.price, 0);
 
