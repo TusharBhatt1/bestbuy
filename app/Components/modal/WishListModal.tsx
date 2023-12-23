@@ -76,7 +76,7 @@ export default function WishlistModal() {
     if (step !== STEPS.confirmation) {
       if (
         wishListModal.all_wishlists.some(
-          (list) => list.listName === currentWishList.listName
+          (list) => list.listName === currentWishList.listName.replace(/\s/g,"")
         )
       ) {
         setIsError(true);
