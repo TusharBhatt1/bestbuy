@@ -76,14 +76,14 @@ export default function WishlistModal() {
       if (
         wishListModal.all_wishlists.some(
           (list) =>
-            list.listName.replace(/\s/g,"").toLowerCase() === currentWishList.listName.replace(/\s/g, "").toLowerCase()
+            list.listName.replaceAll(" ","").toLowerCase() === currentWishList.listName.replaceAll(" ", "").toLowerCase()
         )
       ) {
         setIsError(true);
         setErrorMsg("Wishlist with same name already exists");
         return;
       }
-      if (currentWishList.listName.replace(/\s/g,"") .length === 0) {
+      if (currentWishList.listName.replaceAll(" ","") .length === 0) {
         setIsError(true);
         setErrorMsg("Cannot Be Empty");
         return;

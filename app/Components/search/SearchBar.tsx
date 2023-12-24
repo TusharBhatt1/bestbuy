@@ -31,13 +31,13 @@ export default function SearchBar() {
     const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
         let input = e.target.value;
         
-        if(alreadysearched.includes(input.replace(/\s/g,''))) {
+        if(alreadysearched.includes(input.replaceAll(" ",""))) {
           filterResult(input)
           setIsSearching(false)
         }
         else if (input.charAt(input.length - 1) !== ' ') {
           alreadysearched.push(input)
-          input = input.replace(/\s/g, '');
+          input = input.replaceAll(" ", "");
           filterResult(input);
           setIsSearching(true)
           setTimeout(()=>setIsSearching(false),1000)
