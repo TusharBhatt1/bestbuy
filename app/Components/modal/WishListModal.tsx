@@ -76,7 +76,7 @@ export default function WishlistModal() {
       if (
         wishListModal.all_wishlists.some(
           (list) =>
-            list.listName === currentWishList.listName.replace(/\s/g, "")
+            list.listName.replace(/\s/g,"").toLowerCase() === currentWishList.listName.replace(/\s/g, "").toLowerCase()
         )
       ) {
         setIsError(true);

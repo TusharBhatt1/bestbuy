@@ -23,11 +23,10 @@ export default function SearchBar() {
     const [showResult , setShowResult]=useState(false)
     const [filteredResult , setFilteredResults]=useState<ProductType[]>(allProducts)
      
-    const filterResult=useCallback((query)=>{
-      (query:string)=>{
+    const filterResult= (query:string)=>{
         setFilteredResults(allProducts.filter((product)=>product.title.toLowerCase().includes(query.toLowerCase())))
        }
-    },[setIsSearching]) 
+      
 
     const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
         let input = e.target.value;
