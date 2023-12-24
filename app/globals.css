@@ -23,7 +23,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
   .fadeInAnimation{
-    animation: fadeIn 0.5s linear;
+    animation: fadeIn 0.8s linear;
 }
 
 @keyframes fadeIn {
@@ -38,7 +38,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 @keyframes zoomIn {
   from {
     
-    transform: scale(0);
+    transform: scale(0.8);
   }
   to {
     transform: scale(1); 
@@ -47,7 +47,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 
 .zoomIn {
-  animation: zoomIn 1s ease-in-out; 
+  animation: zoomIn 0.8s ease-in-out; 
 }
 
   

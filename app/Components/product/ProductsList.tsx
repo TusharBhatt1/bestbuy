@@ -5,12 +5,12 @@ import Heading from "../Heading";
 import { FiLoader } from "react-icons/fi";
 const DynamicProductCard = dynamic(() => import("./ProductCard"), {
   loading: () => (
-    <p className="h-40 w-40 bg-slate-400">
+    <div className="flex justify-center items-center h-40 w-40 bg-slate-200">
       <FiLoader
         size={30}
-        className="flex justify-center items-center animate-spin"
+        className=" animate-spin"
       />
-    </p>
+    </div>
   ),
 });
 
