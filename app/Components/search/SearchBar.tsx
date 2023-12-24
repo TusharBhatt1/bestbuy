@@ -58,16 +58,18 @@ export default function SearchBar() {
             placeholder="Search"
             className="w-full py-1 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-indigo-600"
           />
+         
           {isSearching && (
-            <div className="absolute right-3 animate-spin">
+            <div className="absolute right-8 animate-spin">
               <FiLoader />
             </div>
           )}
-          {showResult && (
+           {showResult && (
             <div className="absolute right-2 hover:bg-slate-100 rounded-full cursor-pointer">
               <AiOutlineClose onClick={() => setShowResult(false)} />
             </div>
           )}
+          
         </div>
         <div className="w-full absolute h-full">
           {showResult && (
