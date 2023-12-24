@@ -7,19 +7,19 @@ import useCartDetails from "../../Others/hooks/useCartDetails";
 import toast from "react-hot-toast";
 import useAddToWishlist from "../../Others/hooks/useAddToWishlist";
 import useCart from "../../Others/hooks/useCartModal";
-import useIsLoading from "@/app/Others/hooks/useIsLoading";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProductCard({ product }: { product: ProductType }) {
+
   const { id, title, image, price } = product;
-  const loading = useIsLoading()
+  const [showCard , setShowCard]=useState(false)
   const addToWishlistModal = useAddToWishlist();
   const { addItem, setFinalCart } = useCartDetails();
   const cartModal = useCart();
   
   useEffect(()=>{
   setTimeout(()=>{
-    loading.onClose()
+   setShowCard(true)
   },2000)
   },[])
   const handleAddToCart = () => {
@@ -37,7 +37,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
     addToWishlistModal.setProduct(product);
   };
 
-  if (!loading.isLoading){
+  if (showCard){
     return (
       <div className="zoomIn">
         <ul className="cursor-pointer">
