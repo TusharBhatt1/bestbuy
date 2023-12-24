@@ -6,7 +6,6 @@ import ToasterProvider from "./Others/providers/ToasterProvider";
 import WishlistModal from "./Components/modal/WishListModal";
 import AddToWishlistModal from "./Components/modal/AddToWishlistModal";
 import Loader from "./Components/Loader";
-import useIsLoading from "./Others/hooks/useIsLoading";
 
 export const metadata: Metadata = {
   title: "Best Buy",
