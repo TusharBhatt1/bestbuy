@@ -38,7 +38,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
   if (loading.isShown){
     return (
       <div className="zoomIn">
-        <ul className="cursor-pointer">
+      <ul className="cursor-pointer">
           <li className="border rounded-lg transition-transform transform-gpu hover:shadow-xl">
             <div className="flex h-40 items-start justify-between p-4">
               <Link href={`/product/${id}`}>

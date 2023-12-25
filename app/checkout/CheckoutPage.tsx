@@ -1,4 +1,5 @@
 "use client";
+import Empty from "@/public/empty.svg"
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import useCartDetails from "../Others/hooks/useCartDetails";
@@ -40,9 +41,14 @@ export default function CheckoutPage({
 
   if (finalCart.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-[40vh]">
+      <div className="flex flex-col items-center justify-center h-80">
+      
+        <Image 
+        alt="Empty"
+        src={Empty}
+         height={200} width={200}/>
+        <Link href="/" className=" mt-4 flex flex-col justify-center items-center">
         <p className="text-lg font-semibold mb-2">Your Cart is Empty</p>
-        <Link href="/">
           <p className="text-blue-500 cursor-pointer">
             Explore Products
           </p>

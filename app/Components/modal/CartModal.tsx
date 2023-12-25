@@ -1,4 +1,5 @@
 "use client";
+import Empty from "@/public/empty.svg"
 import { OrderDetailsProps } from "@/app/@types";
 import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
@@ -34,7 +35,7 @@ export default function CartModal({
 
   const onSubmit = () => {
     if (cartSize === 0) {
-      toast("Add Products");
+      toast("Add Products from here !");
       router.push("/");
       cartModal.onClose();
     } else {
@@ -47,8 +48,12 @@ export default function CartModal({
 
   if (cartSize === 0) {
     bodyContent = (
-      <div>
+      <div className="flex flex-col justify-between gap-4 items-center">
         <p className="text-center font-bold"> Cart is Empty</p>
+        <Image 
+        alt="Empty"
+        src={Empty}
+         height={200} width={200}/>
       </div>
     );
   } else
@@ -88,7 +93,7 @@ export default function CartModal({
       title="Your Cart"
       onSubmit={onSubmit}
       body={bodyContent}
-      footer={footer}
+      footer={cartSize===0 ? <div></div>: footer}
       actionLabel={cartSize === 0 ? "Buy Something" : "Move to Checkout"}
     />
   );
