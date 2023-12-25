@@ -12,9 +12,7 @@ export default function Loader() {
     setTimeout(() => {
    loading.onDone()
     }, 2000);
-    setTimeout(() => {
-      setShowBtn(true)
-    }, 3000);
+   
   }, []);
 
   if (!loading.isShown) {
@@ -26,12 +24,12 @@ export default function Loader() {
               A NextJS + Typescript + Zustand Web Application by
             </p>
             <p className="text-center font-extrabold text-red-100">Tushar Bhatt</p>
-            {showBtn && <div className="w-1/2 m-auto">
+            <div className="w-1/4 m-auto">
             <Button 
         onClick={()=>loading.onDone()}
-        label="Taking it long ? Close."
+        label="If it takes long."
         />
-        </div>}
+        </div>
         </div>
        
       </div>
