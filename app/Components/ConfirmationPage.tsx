@@ -14,7 +14,7 @@ export default function ConfirmationPage(){
     if (paymentMethod === "") {
      unAuth();
     }
-  },[])
+  },[router])
   const unAuth = () => {
     router.push("/");
     toast.error("Unauthorized");
