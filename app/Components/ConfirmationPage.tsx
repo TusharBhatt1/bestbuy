@@ -10,6 +10,11 @@ export default function ConfirmationPage(){
   const router = useRouter();
    
 
+  useEffect(()=>{
+    if (paymentMethod === "") {
+     unAuth();
+    }
+  },[])
   
   const unAuth = () => {
     router.push("/");
@@ -17,7 +22,6 @@ export default function ConfirmationPage(){
     return;
   };
   
-  if(paymentMethod==="")unAuth()
 
   const onClick = () => {
     router.push("/");
