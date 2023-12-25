@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import useIsLoading from "../Others/hooks/useIsLoading";
 
 export default function Loader() {
-  const [showLoader, setShowLoader] = useState(true)
+  const loading= useIsLoading()
 
   useEffect(() => {
     setTimeout(() => {
-      setShowLoader(false);
+   loading.onDone()
     }, 2000);
   }, []);
 
-  if (showLoader) {
+  if (!loading.isShown) {
     return (
       <div className="fixed text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
         <div className="bg-black h-[100vh] w-screen flex flex-col items-center justify-center">
