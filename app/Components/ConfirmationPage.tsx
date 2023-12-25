@@ -10,17 +10,14 @@ export default function ConfirmationPage(){
   const router = useRouter();
    
 
-  useEffect(()=>{
-    if (paymentMethod === "") {
-     unAuth();
-    }
-  },[router])
+  
   const unAuth = () => {
     router.push("/");
     toast.error("Unauthorized");
     return;
   };
   
+  if(paymentMethod==="")unAuth()
 
   const onClick = () => {
     router.push("/");
