@@ -24,7 +24,7 @@ export default function Loader() {
               A NextJS + Typescript + Zustand Web Application by
             </p>
             <p className="text-center font-extrabold text-red-100">Tushar Bhatt</p>
-            <div className="w-1/4 m-auto">
+            <div className="w-1/2 sm:w-1/4 m-auto">
             <Button 
         onClick={()=>loading.onDone()}
         label="If it takes long."
