@@ -125,7 +125,7 @@ export default function WishListDetails({
         className="border-blue-100 text-blue-500 font-extrabold border-2 mt-4 m-auto rounded-lg p-1"
         onClick={() => wishListModal.onOpen()}
       >
-        + Create new wishList
+        + Create new wishlist
       </button>
     </div>
   );

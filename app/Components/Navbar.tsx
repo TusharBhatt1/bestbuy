@@ -50,7 +50,7 @@ export default function Navbar() {
         className=" block sm:hidden border-2 text-sm cursor-pointer hover:bg-black text-extrabold hover:text-white border-blue-500 p-1 rounded-xl"
         onClick={wishlistModal.onOpen}
       >
-       + Create new wishList
+       + Create new wishlist
       </button>
     </div>
   );

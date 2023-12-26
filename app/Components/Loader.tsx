@@ -18,12 +18,7 @@ export default function Loader() {
     return (
       <div className="fixed text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
         <div className="bg-black h-[100vh] w-screen flex flex-col items-center justify-center">
-          <div className="w-full lg:w-1/2">
-            <Button
-              onClick={() => loading.onDone()}
-              label="If it takes long."
-            />
-          </div>
+          
           <div className="border-t-2 text-center mt-4 border-blue-500 border-solid rounded-full w-8 h-8 animate-spin"></div>
           <p className="text-sm font-bold mt-4 text-pink-400">
             A NextJS + Typescript + Zustand Web Application by
@@ -31,6 +26,12 @@ export default function Loader() {
           <p className="text-center text-lg font-extrabold text-red-100">
             Tushar Bhatt
           </p>
+          <div className="w-full lg:w-1/2 mt-10">
+            <Button
+              onClick={() => loading.onDone()}
+              label="If it takes long."
+            />
+          </div>
         </div>
       </div>
     );
