@@ -85,6 +85,7 @@ export default function UserDetailsForm() {
 
   const router=useRouter()
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    
     const file = e.target.files?.[0];
     if (file) {
       setValue("profile", file);
