@@ -6,6 +6,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { ProductType } from "@/app/@types";
 import useCartDetails from "@/app/Others/hooks/useCartDetails";
+import { IoMdAdd } from "react-icons/io";
 
 interface WishlistDetailsProps {
   all_wishlists: WishList[];
@@ -13,7 +14,6 @@ interface WishlistDetailsProps {
 
 export default function WishListDetails({
   all_wishlists,
-
 }: WishlistDetailsProps) {
   const [expandedWishlist, setExpandedWishlist] = useState<number | null>(null);
   const wishListModal = useWishListModal();
@@ -36,7 +36,6 @@ export default function WishListDetails({
     setFinalCart();
     toast.success("Added to cart");
   };
- 
 
   return (
     <div className="mt-20 flex w-[80vw]  md:w-[35vw] ml-2 sm:ml-4 mr-4 shadow-md  p-2 h-[50vh] md:h-[40vh] flex-col justify-center items-center">
@@ -45,7 +44,7 @@ export default function WishListDetails({
           <p className="text-xl text-center">
             All WishLists({all_wishlists.length})
           </p>
-          <hr/>
+          <hr />
           <div className="space-y-4 mt-4">
             {all_wishlists.length !== 0 ? (
               all_wishlists.map((wishlist, index) => (
@@ -78,45 +77,40 @@ export default function WishListDetails({
                   </div>
                   {expandedWishlist === index && (
                     <ul className="list-disc">
-                      {wishlist.listItems.map(
-                        (item: ProductType) => (
-                          <div
-                            className="flex gap-2 px-2 items-center"
-                            key={item.id}
+                      {wishlist.listItems.map((item: ProductType) => (
+                        <div
+                          className="flex gap-2 px-2 items-center"
+                          key={item.id}
+                        >
+                          <Link
+                            className="hover:underline"
+                            href={`/product/${item.id}`}
                           >
-                            <Link
-                              className="hover:underline"
-                              href={`/product/${item.id}`}
+                            <li className="mb-2">
+                              <span className="text-sm">{item.title}</span>{" "}
+                              <span className="text-xs text-slate-400">
+                                - Rs {item.price}
+                              </span>
+                            </li>
+                          </Link>
+                          <div className="flex gap-4">
+                            <button
+                              className="hover:font-bold  text-sm  text-blue-600"
+                              onClick={() => handleBuyNow(item)}
                             >
-                              <li className="mb-2">
-                                <span className="text-sm">{item.title}</span>{" "}
-                                <span className="text-xs text-slate-400">
-                                  - Rs {item.price}
-                                </span>
-                              </li>
-                            </Link>
-                            <div className="flex gap-4">
-                              <button
-                                className="hover:font-bold  text-sm  text-blue-600"
-                                onClick={() => handleBuyNow(item)}
-                              >
-                                Buy
-                              </button>
-                              <button
-                                className="hover:font-bold  text-sm  text-red-600"
-                                onClick={() =>
-                                  handleRemoveItem(
-                                    wishlist.listName,
-                                    item.title
-                                  )
-                                }
-                              >
-                                Remove
-                              </button>
-                            </div>
+                              Buy
+                            </button>
+                            <button
+                              className="hover:font-bold  text-sm  text-red-600"
+                              onClick={() =>
+                                handleRemoveItem(wishlist.listName, item.title)
+                              }
+                            >
+                              Remove
+                            </button>
                           </div>
-                        )
-                      )}
+                        </div>
+                      ))}
                     </ul>
                   )}
                 </div>
@@ -131,7 +125,7 @@ export default function WishListDetails({
         className="border-blue-100 text-blue-500 font-extrabold border-2 mt-4 m-auto rounded-lg p-1"
         onClick={() => wishListModal.onOpen()}
       >
-       <span>+</span> Create WishList
+        + Create new wishList
       </button>
     </div>
   );

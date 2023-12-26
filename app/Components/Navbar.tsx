@@ -7,6 +7,8 @@ import useWishListModal from "../Others/hooks/useWishlistModal";
 import useFetchTheme from "../Others/hooks/useFetchTheme";
 import useThemeStore from "../Others/hooks/useTheme";
 import Image from "next/image";
+import { IoMdAdd } from 'react-icons/io';
+
 
 export default function Navbar() {
   useFetchTheme();
@@ -45,10 +47,10 @@ export default function Navbar() {
         <CartIcon />
       </span>
       <button
-        className=" block sm:hidden border-2 cursor-pointer hover:bg-black text-extrabold hover:text-white border-blue-500 p-1 rounded-xl"
+        className=" block sm:hidden border-2 text-sm cursor-pointer hover:bg-black text-extrabold hover:text-white border-blue-500 p-1 rounded-xl"
         onClick={wishlistModal.onOpen}
       >
-       + Create WishList
+       + Create new wishList
       </button>
     </div>
   );
