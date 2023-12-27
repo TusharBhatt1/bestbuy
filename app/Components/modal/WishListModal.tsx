@@ -203,12 +203,12 @@ export default function WishlistModal() {
     bodyContent = (
       <div>
         <p className=" mb-2 text-center font-bold">
-          <span className="text-slate-500">Name :</span>{" "}
+          <span className="text-slate-500 text-xs">Name :</span>{" "}
           {currentWishList.listName}
         </p>
         <hr></hr>
         <p className="mb-2 font-bold">
-          <span className="text-slate-500">Selected Items :</span>
+          <span className="text-slate-500 text-xs">Selected Items :</span>
         </p>
         
          {Object.keys(selected).length === 0 ?(
