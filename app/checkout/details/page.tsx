@@ -1,12 +1,16 @@
 import Heading from '@/app/Components/Heading'
 import UserDetailsForm from '../../Components/forms/UserDetailsForm'
-
+import Link
+ from 'next/link'
+import { BiArrowBack } from 'react-icons/bi'
 export default function page() {
   return (
     <>
+ 
     <Heading
     title='Enter Your Details'
     />
+    <Link href="/checkout" className="block md:absolute md:ml-2"><BiArrowBack size={20}/></Link>
     <UserDetailsForm/>
     </>
   )
