@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useIsLoading from "../Others/hooks/useIsLoading";
 import Button from "./Button";
 
 export default function Loader() {
   const loading = useIsLoading();
-  const [showBtn, setShowBtn] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
