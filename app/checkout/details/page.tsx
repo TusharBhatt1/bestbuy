@@ -10,7 +10,7 @@ export default function page() {
     <Heading
     title='Enter Your Details'
     />
-    <Link href="/checkout" className="block md:absolute md:ml-2"><BiArrowBack size={20}/></Link>
+    <Link href="/checkout" className="block md:absolute ml-8"><BiArrowBack size={20}/></Link>
     <UserDetailsForm/>
     </>
   )
