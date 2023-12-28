@@ -81,7 +81,7 @@ export default function SearchBar() {
         </div>
         <div className="w-full absolute h-full">
           {showResult && (
-            <DynamicSearchResult filteredResult={filteredResult} />
+            <DynamicSearchResult filteredResult={filteredResult} setShowResult={setShowResult}  />
           )}
         </div>
       </div>

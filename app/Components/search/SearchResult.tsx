@@ -2,11 +2,15 @@ import { ProductType } from "@/app/@types";
 import Link from "next/link";
 import React from "react";
 
+interface ResultProps{
+  filteredResult:ProductType[],
+  setShowResult:(value:boolean)=>void
+}
 export default function SearchResult({
   filteredResult,
-}: {
-  filteredResult: ProductType[];
-}) {
+  setShowResult
+
+}:ResultProps) {
   if (filteredResult.length === 0) {
     return (
       <div className="max-h-40 w-full shadow-sm bg-white text-black z-30 p-2 overflow-y-auto">
@@ -24,6 +28,7 @@ export default function SearchResult({
             href={`/product/${p.id}`}
             key={p.id}
             className="p-2 text-sm hover:bg-slate-50"
+            onClick={()=>setShowResult(false)}
           >
             {p.title}
           </Link>
