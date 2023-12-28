@@ -22,7 +22,7 @@ export default function Navbar() {
       style={{
         background: theme.theme["--foreground"],
       }}
-      className={`flex justify-around items-center text-blue-500 p-3 z-20 fixed w-full shadow-md`}
+      className={`flex justify-around items-center text-blue-500 py-2 sm:p-3 z-20 fixed w-full shadow-md`}
     >
       <Link href="/" className="flex flex-col sm:flex-row justify-center gap-1 items-center">
         <Image priority src={theme.merchantLogo} width={40} height={40} alt="logo" />
