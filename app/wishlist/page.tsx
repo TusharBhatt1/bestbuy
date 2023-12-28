@@ -1,5 +1,5 @@
 import React from 'react'
-import WishList from '../Components/wishlistSideBox/WishList'
+import WishList from '../Components/wishlistSideBox/WishLists'
 import Link from 'next/link'
 import { BiArrowBack } from 'react-icons/bi'
 

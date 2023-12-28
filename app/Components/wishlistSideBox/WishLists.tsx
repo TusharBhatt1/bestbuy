@@ -2,7 +2,7 @@
 import WishListDetails from './WishListDetails'
 import useWishListModal from '@/app/Others/hooks/useWishlistModal'
 
-export default function WishList() {
+export default function WishLists() {
   
   const {all_wishlists}=useWishListModal()
   return (

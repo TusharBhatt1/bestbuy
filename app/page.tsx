@@ -1,5 +1,5 @@
 import ProductsList from "./Components/product/ProductsList";
-import WishList from "./Components/wishlistSideBox/WishList";
+import WishList from "./Components/wishlistSideBox/WishLists";
 
 export default async function Home() {
    

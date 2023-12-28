@@ -42,7 +42,7 @@ export default function WishListDetails({
       <div className=" rounded-md justify-center p-4 items-center h-full w-full overflow-x-auto ">
         <div className="w-full h-full m-auto">
           <p className="text-xl text-center">
-            All WishLists({all_wishlists.length})
+            All WishLists ({all_wishlists.length})
           </p>
           <hr />
           <div className="space-y-4 mt-4">

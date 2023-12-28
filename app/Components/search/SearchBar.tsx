@@ -63,8 +63,8 @@ export default function SearchBar() {
             onChange={handleChange}
             value={query}
             type="text"
-            placeholder="Search"
-            className="w-full py-1 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-indigo-600"
+            placeholder="What are you looking for today ?"
+            className="w-[30vw] py-1 pl-20  pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-indigo-600"
           />
          
           {isSearching && (
