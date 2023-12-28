@@ -20,7 +20,7 @@ export default async function ProductsList() {
   return (
     <div className="flex mt-2 flex-col">
       <Heading title="World Of Fashion" />
-      <div className="grid grid-cols-1 gap-10  mt-5 sm:p-0 sm:ml-20  sm:grid-cols-2 ">
+      <div className="grid grid-cols-1 gap-10  mt-7 sm:p-0 sm:ml-20  sm:grid-cols-2 ">
         {products?.map((product) => (
           <DynamicProductCard key={product.id} product={product} />
         ))}
