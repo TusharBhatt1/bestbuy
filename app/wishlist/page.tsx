@@ -8,13 +8,14 @@ export default function page() {
 
   return (
     <>
-    <Heading title='All Wishlists'/>
+   
     <div className='flex sm:hidden w-full h-full flex-col ml-10'>
       <WishlistPageSm/>
     </div>
 
    <div className='hidden sm:flex'>
-   {<WishlistPageLg/>}
+   <Heading title='All Wishlists'/>
+   <WishlistPageLg/>
    </div>
    </>
   
