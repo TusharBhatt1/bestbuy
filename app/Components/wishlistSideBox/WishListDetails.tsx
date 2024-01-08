@@ -38,10 +38,10 @@ export default function WishListDetails({
   };
 
   return (
-    <div className="mt-10 md:mt-20 flex w-[80vw]  md:w-[35vw] ml-2 sm:ml-4 mr-4 shadow-md  p-2 h-[50vh] md:h-[55vh] flex-col justify-center items-center">
+    <div className="mt-10 md:mt-20 flex w-[80vw]  md:w-[30vw] ml-2 sm:ml-4 mr-4 shadow-md  p-2 h-[50vh] md:h-[55vh] flex-col justify-center items-center">
       <div className=" rounded-md justify-center p-4 items-center h-full w-full overflow-x-auto ">
         <div className="w-full h-full m-auto">
-          <p className="text-xl text-center">
+          <p className="text-center">
             All WishLists ({all_wishlists.length})
           </p>
           <hr />

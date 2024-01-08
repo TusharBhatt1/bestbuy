@@ -1,10 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-font-family: Georgia, 'Times New Roman', Times, serif;
+font-family: 'Poppins', sans-serif
 }
 
 .rotate {
@@ -49,3 +49,6 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   animation: zoomIn 0.8s ease-in-out; 
 }
 
+.gridSizing{
+  grid-template-columns: 2fr,1fr,1fr,1fr;
+}

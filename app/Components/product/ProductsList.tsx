@@ -3,6 +3,7 @@ import { ProductType } from "../../@types";
 import { getProducts } from "../../Others/fetch/getProducts";
 import Heading from "../Heading";
 import { FiLoader } from "react-icons/fi";
+
 const DynamicProductCard = dynamic(() => import("./ProductCard"), {
   loading: () => (
     <div className="flex justify-center items-center h-40 w-40 bg-slate-200">
@@ -18,7 +19,7 @@ export default async function ProductsList() {
   const products: ProductType[] = await getProducts();
 
   return (
-    <div className="flex mt-2 flex-col">
+    <div className="flex w-[55vw] mt-2 flex-col">
       <Heading title="World Of Fashion" />
       <div className="grid grid-cols-1 gap-10  mt-7 sm:p-0 sm:ml-20  sm:grid-cols-2 ">
         {products?.map((product) => (

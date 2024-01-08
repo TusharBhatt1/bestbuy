@@ -7,7 +7,7 @@ interface Loading{
 }
 
 const useIsLoading= create<Loading>((set)=>({
-    isShown:false,
+    isShown:true,
     onDone:()=>set({isShown:true})
 }))
 export default useIsLoading

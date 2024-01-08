@@ -1,19 +1,22 @@
 import React from 'react'
-import WishList from '../Components/wishlistSideBox/WishLists'
-import Link from 'next/link'
+import Heading from '../Components/Heading'
 import { BiArrowBack } from 'react-icons/bi'
+import WishlistPageSm from './WishlistPageSm'
+import WishlistPageLg from './WishlistPageLg'
 
 export default function page() {
 
   return (
-  <div className='flex w-full h-full flex-col ml-10'>
-    <Link
-    href={"/"}>
-    <BiArrowBack size={20}/>
-    </Link>
-   <WishList/>
+    <>
+    <Heading title='All Wishlists'/>
+    <div className='flex sm:hidden w-full h-full flex-col ml-10'>
+      <WishlistPageSm/>
+    </div>
 
+   <div className='hidden sm:flex'>
+   {<WishlistPageLg/>}
    </div>
+   </>
   
   )
 }

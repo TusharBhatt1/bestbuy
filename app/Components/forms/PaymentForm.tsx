@@ -44,7 +44,7 @@ const cardsConfig = [
 ];
 
 export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
-  const [payMethod, setPayMethod] = useState("");
+  const [payMethod, setPayMethod] = useState("UPI");
   const { userdetails } = useUserPaymentData();
   const [isProcessing, setIsProcessing] = useState(false);
   const { setPaymentMethod } = useUserPaymentData();
@@ -69,7 +69,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
     router.push("/checkout/details");
     toast.error("Need details first");
     return;
-  };
+  }
 
   const handleSelectMethod = (method: "UPI" | "CARDS") => {
     setPayMethod(method);

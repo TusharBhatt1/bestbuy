@@ -4,7 +4,7 @@ import Checkout from './Checkout'
 
 export default function page() {
   return (
-    <div>
+    <div className='flex flex-col md:flex-row'>
     <Heading
     title='Checkout'
     />

@@ -102,10 +102,11 @@ export default function UserDetailsForm() {
   };
 
   return (
+    <div className="flex justify-center items-center mt-2">
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="max-w-md mx-auto p-4 rounded-md shadow-md grid grid-cols-2 gap-2">
+      <div className="max-w-md justify-center items-center p-4 rounded-md shadow-md grid grid-cols-2 gap-4">
         {formConfig?.map((row, id) => {
-          const name: any = row?.name;
+          const name: any = row?.name
           const prop = {
             onChange: (e: any) => {
               if (row?.type === "file") {
@@ -125,6 +126,7 @@ export default function UserDetailsForm() {
         <Button label="Submit" type="submit" />
       </div>
     </form>
+    </div>
   );
 
 }

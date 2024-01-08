@@ -7,14 +7,12 @@ import useCartDetails from "../../Others/hooks/useCartDetails";
 import toast from "react-hot-toast";
 import useAddToWishlist from "../../Others/hooks/useAddToWishlist";
 import useCart from "../../Others/hooks/useCartModal";
-import { useEffect, useState } from "react";
 import useIsLoading from "@/app/Others/hooks/useIsLoading";
 
 export default function ProductCard({ product }: { product: ProductType }) {
 
   const { id, title, image, price } = product;
   const loading=useIsLoading()
-  const [showCard , setShowCard]=useState(false)
   const addToWishlistModal = useAddToWishlist();
   const { addItem, setFinalCart } = useCartDetails();
   const cartModal = useCart();
@@ -43,7 +41,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
             <div className="flex h-40 items-start justify-between p-4">
               <Link href={`/product/${id}`}>
                 <div className="grid grid-rows-1">
-                  <p className="font-bold text-xs">{title}</p>
+                  <p className="text-xs">{title}</p>
                   <div className="flex justify-center items-center">
                     <Image
                       src={image}
@@ -53,7 +51,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
                       className="h-20 w-20"
                     />
                   </div>
-                  <p className="text-sm font-extrabold">&#x20B9; {price}</p>
+                  <p className="text-sm">&#x20B9; {price}</p>
                 </div>
               </Link>
               <button

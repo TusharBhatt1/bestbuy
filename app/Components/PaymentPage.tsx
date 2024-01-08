@@ -11,13 +11,12 @@ export default function PaymentPage() {
   const totalPrice = finalCart.reduce((a, b) => a + b.price, 0);
 
   return (
-    <div className="flex max-h-[70vh] mt-4 w-full justify-center items-center text-xs">
+    <div className="flex mt-4 w-full justify-center items-center text-xs">
       <div className="shadow-xl p-4 overflow-x-auto">
-        <Link href="/checkout/details">
+        {/* <Link href="/checkout/details">
           <BiArrowBack size={20} />
-        </Link>
-        <Heading title="Payment" />
-        <hr />
+        </Link> */}
+  
         <OrderSummary />
         <hr />
         <PaymentForm totalPrice={totalPrice} />

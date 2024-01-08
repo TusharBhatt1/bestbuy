@@ -22,6 +22,63 @@ export default function ProductDetails({ details }: { details: ProductType | und
     }
   };
 
+  return (
+    <div className="border-b-2 border-slate-200 mt-4">
+      <div className="flex flex-col sm:flex-row justify-around items-center px-4 sm:p-4">
+        {/* left */}
+        <div className="flex flex-col justify-center gap-4">
+          <div className="flex gap-20">
+            <aside className="flex flex-col gap-4">
+              <Image width={20} height={20}  className="h-10 w-10" src={details.image} alt={details.title} />
+              <Image width={20} height={20} className="h-10 w-10" src={details.image} alt={details.title} />
+              <Image width={20} height={20} className="h-10 w-10" src={details.image} alt={details.title} />
+              <Image width={20} height={20} className="h-10 w-10" src={details.image} alt={details.title} />
+            </aside>
+            <div>
+              <Image width={70} height={70} className="h-40 w-40" src={details.image} alt={details.title} />
+            </div>
+          </div>
+        </div>
+        {/* right */}
+        <div className="mt-4 sm:mt-0 flex flex-col items-center gap-4 text-center">
+        <div>
+            <p className="font-bold text-xl sm:text-2xl">{details.title}</p>
+          </div>
+          <p>
+            A light weight upper wear, wear as an inner wear and also outer wear
+          </p>
+          <div className="flex justify-center items-center">
+          <Rating rate={details?.rating?.rate} />
+            <p>(157)</p>
+          </div>
+          <div className="flex flex-col gap-4">
+            <p className="text-center text-xl">
+              &#8377;
+              {details.price}
+              <span className="ml-2 text-slate-400 line-through">
+                &#8377;{details.price+200}
+              </span>
+            </p>
+
+            <div className="flex flex-col gap-2 sm:gap-10 justify-center items-center">
+              <div>
+                <p className="font-bold">Select Size</p>
+                <div className="flex gap-2 mt-2 sm:mt-4">
+                  <button className="size-buttons">S</button>
+                  <button className="size-buttons">M</button>
+                  <button className="size-buttons">L</button>
+                  <button className="size-buttons">XL</button>
+                </div>
+              </div>
+              <div className="my-4 sm:my-0 w-[40vw]">
+                <Button onClick={handleAddToCart} label="Add to Cart" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
   if (details) {
     return (
       <div>

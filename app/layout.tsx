@@ -6,6 +6,7 @@ import ToasterProvider from "./Others/providers/ToasterProvider";
 import WishlistModal from "./Components/modal/WishListModal";
 import AddToWishlistModal from "./Components/modal/AddToWishlistModal";
 import Loader from "./Components/Loader";
+import Footer from "./Components/Footer";
 
 export const metadata: Metadata = {
   title: "Best Buy",
@@ -30,7 +31,9 @@ export default function RootLayout({
           <WishlistModal />
           <Cart />
           <Navbar />
-          <div className="py-20">{children}</div>
+          <div className="py-32">{children}</div>
+          <Footer/>
+        
         </div>
       </body>
     </html>

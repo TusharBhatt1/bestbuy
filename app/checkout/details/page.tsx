@@ -5,14 +5,15 @@ import Link
 import { BiArrowBack } from 'react-icons/bi'
 export default function page() {
   return (
-    <>
- 
+    <div>
+  <span className='block sm:absolute'>
     <Heading
     title='Enter Your Details'
     />
-    <Link href="/checkout" className="block md:absolute ml-8"><BiArrowBack size={20}/></Link>
+    </span>
+    {/* <Link href="/checkout" className="block md:absolute ml-8"><BiArrowBack size={20}/></Link> */}
     <UserDetailsForm/>
-    </>
+    </div>
   )
 }
 
