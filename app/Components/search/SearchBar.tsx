@@ -33,7 +33,10 @@ export default function SearchBar() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let input = e.target.value;
     setQuery(input)
-    if(input==="") return
+    if(input==="") {
+      setFilteredResults(data)
+      return
+    }
     if (alreadysearched.includes(input.replaceAll(" ", ""))) {
       filterResult(input);
       setIsSearching(false);

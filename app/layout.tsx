@@ -39,15 +39,15 @@ export default function RootLayout({
           <Cart />
           <Navbar />
           
-          <div className="py-32">
+          <div className="py-28 h-[60vh] mb-20">
             <>
             <BackButton/>
             {children}
             </>
           </div>
-          <Footer/>
-        
         </div>
+        {/* <Footer/> */}
+
       </body>
     </html>
   );

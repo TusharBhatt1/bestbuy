@@ -7,7 +7,7 @@ export default function TotalPrice() {
 
 
   return (
-    <div className="flex gap-4 justify-start w-full flex-col">
+    <div className="flex gap-4 justify-start w-full flex-col px-4">
     <p className="text-xl font-extrabold">cart total</p>
     <div className="flex justify-between">
       <p>Subtotal</p>

@@ -44,7 +44,7 @@ const cardsConfig = [
 ];
 
 export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
-  const [payMethod, setPayMethod] = useState("UPI");
+  const [payMethod, setPayMethod] = useState("");
   const { userdetails } = useUserPaymentData();
   const [isProcessing, setIsProcessing] = useState(false);
   const { setPaymentMethod } = useUserPaymentData();

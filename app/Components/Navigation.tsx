@@ -4,13 +4,12 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 export default function Navigation() {
 
-    const [selected , setSelected]=useState("Products")
     const pathname=usePathname()
    
   return (
-    <div className="flex gap-4 px-24 text-md sm:text-md">
-    <Link href={"/"} onClick={()=>setSelected("Products")}>Products {pathname ==="/" && <hr className='border-2 border-blue-500'/>}</Link>
-    <Link href={"/wishlist"} onClick={()=>setSelected("Wishlist")} >Wishlists{pathname ==="/wishlist" && <hr className='border-2 border-blue-500'/>}</Link>
+    <div className="flex gap-4 px-24 text-xl sm:text-[24px]">
+    <Link href={"/"} >Products {pathname ==="/" && <hr className='border-2 border-blue-500'/>}</Link>
+    <Link href={"/wishlist"}  >Wishlists{pathname ==="/wishlist" && <hr className='border-2 border-blue-500'/>}</Link>
     </div>
   )
 }

@@ -70,7 +70,7 @@ export default function CheckoutPage({
           <p>Price</p>
           <p>Quantity</p>
           <p className="w-[150px] sm:w-auto">
-          <Button onClick={onCheckout} label="Checkout"/>
+          <Button onClick={onCheckout} label="Buy"/>
           </p>
         </div>
         <hr className=" border-slate-600"/>

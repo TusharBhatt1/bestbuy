@@ -1,13 +1,10 @@
 import { ProductType } from "@/app/@types";
 import Button from "@/app/Components/Button";
-import Heading from "@/app/Components/Heading";
 import Rating from "@/app/Components/Rating";
 import useCartDetails from "@/app/Others/hooks/useCartDetails";
 import useCart from "@/app/Others/hooks/useCartModal";
 import Image from "next/image";
-import Link from "next/link";
 import toast from "react-hot-toast";
-import { BiArrowBack } from "react-icons/bi";
 
 export default function ProductDetails({
   details,

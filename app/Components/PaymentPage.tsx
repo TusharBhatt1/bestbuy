@@ -12,7 +12,7 @@ export default function PaymentPage() {
 
   return (
     <div className="flex mt-4 w-full justify-center items-center text-xs">
-      <div className="shadow-xl p-4 overflow-x-auto">
+      <div className="shadow-xl p-4 overflow-x-auto">  
         <OrderSummary />
         <hr />
         <PaymentForm totalPrice={totalPrice} />

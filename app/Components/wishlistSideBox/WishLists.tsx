@@ -1,16 +1,8 @@
-"use client"
-import WishListDetails from './WishListDetails'
-import useWishListModal from '@/app/Others/hooks/useWishlistModal'
+"use client";
+import WishListDetails from "./WishListDetails";
+import useWishListModal from "@/app/Others/hooks/useWishlistModal";
 
 export default function WishLists() {
-  
-  const {all_wishlists}=useWishListModal()
-  return (
- 
-    <WishListDetails
-    all_wishlists={all_wishlists}
-    />
-
-
-  )
+  const { all_wishlists } = useWishListModal();
+  return <WishListDetails all_wishlists={all_wishlists} />;
 }
