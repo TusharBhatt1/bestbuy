@@ -11,7 +11,6 @@ export default function page() {
     title='Enter Your Details'
     />
     </span>
-    {/* <Link href="/checkout" className="block md:absolute ml-8"><BiArrowBack size={20}/></Link> */}
     <UserDetailsForm/>
     </div>
   )

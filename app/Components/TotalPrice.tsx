@@ -7,7 +7,7 @@ export default function TotalPrice() {
 
 
   return (
-    <div className="flex gap-4 justify-start w-full flex-col px-8">
+    <div className="flex gap-4 justify-start w-full flex-col">
     <p className="text-xl font-extrabold">cart total</p>
     <div className="flex justify-between">
       <p>Subtotal</p>
@@ -22,7 +22,7 @@ export default function TotalPrice() {
 
     <div className="flex justify-between">
       <p>Total</p>
-      <p className="font-extrabold">&#8377; {totalPrice}</p>
+      <p className="font-extrabold text-green-500">&#8377; {totalPrice.toFixed()}</p>
     </div>
    
   </div>

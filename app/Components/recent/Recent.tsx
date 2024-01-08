@@ -9,12 +9,12 @@ export default function Recent() {
   return (
     <>
       {cache.length>1 && (
-        <>
-        <p className='border-b-2 text-xl border-slate-200 text-center mt-16'>
+        <div className='flex flex-col w-full sm:w-[32vw]'>
+        <p className=' text-sm  text-center'>
           Recently Viewed
         </p>
         <DynamicRecentlyViewed cache={cache} />
-        </>
+        </div>
       )}
     </>
   );

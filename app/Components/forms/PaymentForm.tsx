@@ -89,13 +89,13 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col shadow-lg rounded-md py-4  gap-4">
-        <p className="text-xl text-center font-bold text-red-500">
+        <p className="text-xl text-center font-bold text-blue-500">
           Select Payment Method
         </p>
         <div className="flex justify-center gap-4 text-center">
           <div
             onClick={() => handleSelectMethod("UPI")}
-            className={`border-2 cursor-pointer rounded-full p-2 flex items-center space-x-2 ${
+            className={`border-2 cursor-pointer rounded-full px-4 p-2  flex items-center space-x-2 ${
               payMethod === "UPI"
                 ? "border-black bg-black text-white"
                 : "border-slate-400"
@@ -106,7 +106,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
           </div>
           <div
             onClick={() => handleSelectMethod("CARDS")}
-            className={`border-2 cursor-pointer rounded-full p-2 flex items-center space-x-2 ${
+            className={`border-2 cursor-pointer rounded-full px-4 p-2 flex items-center space-x-2 ${
               payMethod === "CARDS"
                 ? "border-black border-3 bg-black text-white"
                 : "border-slate-400"

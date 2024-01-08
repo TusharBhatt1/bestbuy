@@ -13,10 +13,6 @@ export default function PaymentPage() {
   return (
     <div className="flex mt-4 w-full justify-center items-center text-xs">
       <div className="shadow-xl p-4 overflow-x-auto">
-        {/* <Link href="/checkout/details">
-          <BiArrowBack size={20} />
-        </Link> */}
-  
         <OrderSummary />
         <hr />
         <PaymentForm totalPrice={totalPrice} />

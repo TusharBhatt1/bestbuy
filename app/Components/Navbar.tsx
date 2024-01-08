@@ -7,9 +7,7 @@ import useWishListModal from "../Others/hooks/useWishlistModal";
 import useFetchTheme from "../Others/hooks/useFetchTheme";
 import useThemeStore from "../Others/hooks/useTheme";
 import Image from "next/image";
-import { IoMdAdd } from 'react-icons/io';
 import Navigation from "./Navigation";
-import Breadcrumbs from "./Breadcrumbs";
 
 
 export default function Navbar() {
@@ -24,10 +22,10 @@ export default function Navbar() {
       style={{
         background: theme.theme["--foreground"],
       }}
-      className={`flex flex-col justify-around gap-4  text-blue-500 py-2 sm:p-3 z-20 fixed w-full shadow-md`}
+      className={`flex flex-col justify-around gap-4  text-blue-500 py-2 px-4 sm:p-3 z-20 fixed w-full shadow-md`}
     >
-      <Breadcrumbs/>
-      <div className="flex w-full justify-between  sm:px-20">
+      
+      <div className="flex w-full justify-between  items-center  sm:px-20">
       <Link href="/" className="flex flex-col sm:flex-row justify-center gap-2 items-center">
         <Image priority src={theme.merchantLogo} width={40} height={40} alt="logo" />
         <p className="font-bold text-xs sm:text-xl">

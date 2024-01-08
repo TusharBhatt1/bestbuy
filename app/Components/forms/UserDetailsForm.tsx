@@ -102,7 +102,7 @@ export default function UserDetailsForm() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-2">
+    <div className="flex justify-center items-center ">
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="max-w-md justify-center items-center p-4 rounded-md shadow-md grid grid-cols-2 gap-4">
         {formConfig?.map((row, id) => {

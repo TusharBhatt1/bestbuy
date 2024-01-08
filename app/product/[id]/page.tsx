@@ -1,3 +1,4 @@
+import useLRU from "@/app/Others/hooks/useLRU";
 import dynamic from "next/dynamic";
 import { FiLoader } from "react-icons/fi";
 const DynamicProductDetails = dynamic(() => import("./GetProduct"),{
@@ -10,9 +11,9 @@ const DynamicProductDetails = dynamic(() => import("./GetProduct"),{
 
 export default function page({ params }: { params: { id: number } }) {
   const { id } = params;
+
   return (
-    <>
-    <p className="text-center font-bold text-purple-500 mt-4">Buy today @10% off</p> 
+    <div className="flex flex-col">
   <DynamicProductDetails id={id} />
-  </>);
+  </div>);
 }

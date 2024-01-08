@@ -63,9 +63,9 @@ export default function CheckoutPage({
     toast.error("Removed");
   };
   return (
-    <div className="flex gap-2 flex-col justify-center items-center sm:px-20">
+    <div className="flex gap-2 flex-col justify-center items-center sm:px-12">
       <div className="flex flex-col gap-2 sm:gap-4 p-2">
-        <div className="grid grid-cols-4 justify-center items-center text-center font-bold text-slate-500">
+        <div className="grid grid-cols-4  justify-center items-center text-center font-bold text-slate-500">
           <p>Product</p>
           <p>Price</p>
           <p>Quantity</p>
@@ -100,12 +100,13 @@ export default function CheckoutPage({
                 onClick={() => handleDelete(item.id)}
                 className="cursor-pointer"
               >
-                <MdOutlineDelete size={20} />
+                <MdOutlineDelete size={20} className="text-red-500" />
               </span>
             </div>
           ))}
         </div>
       </div>
+      
       <TotalPrice/>
     </div>
   );

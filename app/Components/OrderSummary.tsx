@@ -15,18 +15,18 @@ export default function OrderSummary() {
         <div className="flex flex-col gap-2 text-sm">
           <p className="flex items-center">
             <FaUser className="mr-2" />
-            <span className="font-semibold">Name:</span>{" "}
-            <span className="text-green-500">{userdetails.name}</span>
+            <span className="font-semibold">Name - </span>{" "}
+            <span className="text-slate-500">  {userdetails.name}</span>
           </p>
           <p className="flex items-center">
             <FaMapMarkerAlt className="mr-2" />
-            <span className="font-semibold">Address:</span>{" "}
-            <span className="text-green-500">{userdetails.address}</span>
-          </p>
+            <span className="font-semibold">Address - </span>
+            <span className="text-slate-500"> {userdetails.address}</span>
+          </p> 
           <p className="flex items-center">
             <FaPhone className="mr-2" />
-            <span className="font-semibold">Contact:</span>{" "}
-            <span className="text-green-500">{userdetails.contact}</span>
+            <span className="font-semibold">Contact -</span>
+            <span className="text-slate-500"> {userdetails.contact}</span>
           </p>
         </div>
       </div>
@@ -40,11 +40,11 @@ export default function OrderSummary() {
           {finalCart.map((item) => (
             <div
               key={item.id}
-              className="flex justify-between items-center text-xs text-blue-500"
+              className="flex justify-between items-center text-xs text-slate-500"
             >
               <li className="flex items-center ">
               
-                {item.title}
+                { item.title}
               </li>
               <span>({item.quantity})</span>
             </div>

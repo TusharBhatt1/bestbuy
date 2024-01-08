@@ -1,54 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
-font-family: 'Poppins', sans-serif
+*{
+  font-family: var(--font-poppins);
 }
 
 .rotate {
-    animation: rotateAnimation 1s linear infinite; /* Adjust duration and other properties as needed */
-  }
-  
+  animation: rotateAnimation 1s linear infinite;
+}
 
 @keyframes rotateAnimation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-  .fadeInAnimation{
-    animation: fadeIn 0.8s linear;
+.fadeInAnimation {
+  animation: fadeIn 0.8s linear;
 }
 
 @keyframes fadeIn {
-    from{
-        scale: 0.8;
-    }
-    to{
-        scale: 1;
-    }
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes zoomIn {
   from {
-    
     transform: scale(0.8);
   }
   to {
-    transform: scale(1); 
+    transform: scale(1);
   }
 }
 
-
 .zoomIn {
-  animation: zoomIn 0.8s ease-in-out; 
+  animation: zoomIn 0.8s ease-in-out;
 }
 
-.gridSizing{
-  grid-template-columns: 2fr,1fr,1fr,1fr;
+.gridSizing {
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Fix the syntax error here */
 }
