@@ -40,7 +40,7 @@ export default function CheckoutPage({
   }, [setExistingCart]);
 
   const onCheckout = () => {
-    toast.success("Almost there!");
+    toast.success("Taking you there!");
     router.push("/checkout/details");
   };
 
