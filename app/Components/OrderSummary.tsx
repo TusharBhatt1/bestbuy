@@ -57,7 +57,7 @@ export default function OrderSummary() {
                 className="flex justify-between items-center text-xs text-slate-500"
               >
                 <li className="flex items-center ">{item.title}</li>
-                <span>({item.quantity})</span>
+                <span>(1)</span>
               </div>
             ))}
           </div>
