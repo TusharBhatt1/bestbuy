@@ -1,20 +1,27 @@
 "use client"
 import useLRU from '../../Others/hooks/useLRU'
 import dynamic from 'next/dynamic'
-const DynamicRecentlyViewed=dynamic(()=>import('./RecentlyViewed'))
+import Spinner from '../Spinner';
+const DynamicRecentlyViewed=dynamic(()=>import("./RecentlyViewed"),{
+  loading:()=><Spinner/>
+})
 
 export default function Recent() {
   const { cache } = useLRU();
 
   return (
     <>
-      {cache.length>1 && (
+      {cache.length> 1 && (
         <div className='flex flex-col w-full sm:w-[32vw]'>
         <p className=' text-sm  text-center'>
           Recently Viewed
         </p>
-        <DynamicRecentlyViewed cache={cache} />
+        <div className="w-full px-10 md:px-0  h-full p-4 ">
+      <div className="p-4 flex flex-wrap justify-center gap-4">
+        <DynamicRecentlyViewed />
         </div>
+        </div>
+    </div>
       )}
     </>
   );

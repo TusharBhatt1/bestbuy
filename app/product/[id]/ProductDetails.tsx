@@ -1,11 +1,11 @@
 import { ProductType } from "@/app/@types";
-import BackButton from "@/app/Components/BackButton";
 import Button from "@/app/Components/Button";
 import Rating from "@/app/Components/Rating";
 import useCartDetails from "@/app/Others/hooks/useCartDetails";
 import useCart from "@/app/Others/hooks/useCartModal";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import Sizes from "./Sizes";
 
 export default function ProductDetails({
   details,
@@ -25,9 +25,9 @@ export default function ProductDetails({
   };
 
   return (
-    <div className="border-b-2 border-slate-200 ">
+    <div>
      
-      <div className="flex flex-col sm:flex-row justify-around items-center px-4 sm:p-4">
+      <div className="flex flex-col sm:flex-row justify-around items-center sm:p-4">
         {/* left */}
         <div className="flex flex-col justify-center gap-4">
           <div className="flex gap-12">
@@ -94,23 +94,7 @@ export default function ProductDetails({
             </p>
 
             <div className="flex flex-col gap-2 sm:gap-10 justify-center items-center">
-              <div>
-                <p className="font-bold">Select Size</p>
-                <div className="flex gap-2 mt-2 sm:mt-4">
-                  <button className="px-4 py-2 border-2 border-slate-200">
-                    S
-                  </button>
-                  <button className="px-4 py-2 border-2 border-slate-200">
-                    M
-                  </button>
-                  <button className="px-4 py-2 border-2 border-slate-200">
-                    L
-                  </button>
-                  <button className="px-4 py-2 border-2 border-slate-200">
-                    XL
-                  </button>
-                </div>
-              </div>
+              <Sizes/>
               <div className="my-4 sm:my-0 w-[40vw]">
                 <Button onClick={handleAddToCart} label="Add to Cart" />
               </div>

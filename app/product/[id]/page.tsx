@@ -1,18 +1,16 @@
-import dynamic from "next/dynamic";
-import { FiLoader } from "react-icons/fi";
-const DynamicProductDetails = dynamic(() => import("./GetProduct"),{
-  loading:()=>(
-    <div className='h-[60vw] w-full flex justify-center items-center bg-slate-200'>
-    <FiLoader className="mt-10 animate-spin"/>
-  </div>
-  )
-});
+import Product from "./Product";
 
 export default function page({ params }: { params: { id: number } }) {
   const { id } = params;
 
   return (
     <div className="flex flex-col">
-  <DynamicProductDetails id={id} />
-  </div>);
+      <div>
+        <p className="text-sm text-italic text-slate-400">
+          Elevate Your Style 🌟
+        </p>
+        <Product id={id} />
+      </div>
+    </div>
+  );
 }

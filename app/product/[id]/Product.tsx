@@ -1,37 +1,38 @@
 "use client";
 
 import { ProductType } from "@/app/@types";
+import Spinner from "@/app/Components/Spinner";
+import { getProductDetails } from "@/app/Others/fetch/getProductDetails";
 import useLRU from "@/app/Others/hooks/useLRU";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-const DynamicProductDetails = dynamic(() => import("./ProductDetails"));
 
-export default function GetProduct({ id }: { id: number }) {
+const DynamicProductDetails = dynamic(() => import("./ProductDetails"), {
+  loading: () => (
+    <div className="h-[70vh] w-[80vw] flex justify-center items-center">
+      <div>
+        <Spinner />
+      </div>
+    </div>
+  ),
+});
+
+export default function Product({ id }: { id: number }) {
   const [details, setDetails] = useState<ProductType>();
   const { cache, setItem } = useLRU();
 
-
-  const fetchData = (id: number) => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setDetails(data);
-        setItem(`${id}`, data);
-      })
-      .catch((error) => {
-       toast.error("Unable to fetch")
-       //@ts-ignore
-       setDetails({})
-       return
-      });
+  const fetchData = async (id: any) => {
+    const data = await getProductDetails(id);
+    setDetails(data);
+    setItem(`${id}`, data);
   };
+
   const getData = (id: number) => {
     const cachedItem = cache.find((item) => item.key === `${id}`);
 
     if (cachedItem) {
       setDetails(cachedItem.value);
-    
+
       return;
     } else fetchData(id);
   };
