@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const DynamicProductDetails = dynamic(() => import("./ProductDetails"), {
   loading: () => (
-    <div className="h-[70vh] w-[80vw] flex justify-center items-center">
+    <div className="h-[50vh] w-[60vw] flex justify-center items-center">
       <div>
         <Spinner />
       </div>

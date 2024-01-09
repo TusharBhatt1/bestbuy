@@ -4,7 +4,7 @@ export default function Spinner() {
   return (
     <div>
       <div className="animate-spin">
-        <BiLoader />
+        <BiLoader size={24} />
       </div>
     </div>
   );
