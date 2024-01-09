@@ -9,7 +9,7 @@ export default function BackButton() {
 
   if (pathName !== "/" && pathName!=="/checkout/details/payment/confirmation") {
     return (
-      <div onClick={() => router.back()} className="ml-7 mt-2 cursor-pointer">
+      <div onClick={() => router.back()} className="ml-7 mt-4 cursor-pointer">
         <IoChevronBackCircleOutline size={30} />
       </div>
     );

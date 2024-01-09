@@ -1,9 +1,8 @@
-import useLRU from "@/app/Others/hooks/useLRU";
 import dynamic from "next/dynamic";
 import { FiLoader } from "react-icons/fi";
 const DynamicProductDetails = dynamic(() => import("./GetProduct"),{
   loading:()=>(
-    <div className='h-80 w-full flex justify-center items-center bg-slate-200'>
+    <div className='h-[60vw] w-full flex justify-center items-center bg-slate-200'>
     <FiLoader className="mt-10 animate-spin"/>
   </div>
   )

@@ -1,8 +1,6 @@
 import Heading from '@/app/Components/Heading'
 import UserDetailsForm from '../../Components/forms/UserDetailsForm'
-import Link
- from 'next/link'
-import { BiArrowBack } from 'react-icons/bi'
+
 export default function page() {
   return (
     <div>

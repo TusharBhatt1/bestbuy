@@ -46,7 +46,7 @@ export default function RootLayout({
             </>
           </div>
         </div>
-        {/* <Footer/> */}
+     
 
       </body>
     </html>

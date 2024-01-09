@@ -1,4 +1,5 @@
 import { ProductType } from "@/app/@types";
+import BackButton from "@/app/Components/BackButton";
 import Button from "@/app/Components/Button";
 import Rating from "@/app/Components/Rating";
 import useCartDetails from "@/app/Others/hooks/useCartDetails";
@@ -25,6 +26,7 @@ export default function ProductDetails({
 
   return (
     <div className="border-b-2 border-slate-200 ">
+     
       <div className="flex flex-col sm:flex-row justify-around items-center px-4 sm:p-4">
         {/* left */}
         <div className="flex flex-col justify-center gap-4">

@@ -1,3 +1,4 @@
+import BackButton from "./BackButton";
 interface HeadingProps {
   title: string;
   subtitle?: string;

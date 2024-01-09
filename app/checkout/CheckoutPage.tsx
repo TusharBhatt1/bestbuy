@@ -64,7 +64,7 @@ export default function CheckoutPage({
   };
   return (
     <div className="flex gap-2 flex-col justify-center items-center sm:px-12">
-      <div className="flex flex-col gap-2 sm:gap-4 p-2">
+      <div className="flex flex-col gap-2  p-2">
         <div className="grid grid-cols-4  justify-center items-center text-center font-bold text-slate-500">
           <p>Product</p>
           <p>Price</p>

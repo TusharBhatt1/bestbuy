@@ -156,10 +156,10 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
             </div>
           </div>
         )}
-
+        
         <Button
           type="submit"
-          label={`Pay ₹${totalPrice.toFixed()}`}
+          label={`Pay ₹ ${totalPrice.toFixed()}`}
           disabled={!isValid}
           isProcessing={isProcessing}
         />
