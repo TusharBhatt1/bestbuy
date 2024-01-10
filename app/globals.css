@@ -4,9 +4,13 @@
 
 *{
   font-family: var(--font-poppins);
-  font-size:15px;
+  font-size:14px;
 }
-
+@media (max-width:400px) {
+  * {
+    font-size: 12px;
+  }
+}
 .rotate {
   animation: rotateAnimation 1s linear infinite;
 }
@@ -44,8 +48,4 @@
 
 .zoomIn {
   animation: zoomIn 0.8s ease-in-out;
-}
-
-.gridSizing {
-  grid-template-columns: 2fr 1fr 1fr 1fr; /* Fix the syntax error here */
 }

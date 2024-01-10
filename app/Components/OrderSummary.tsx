@@ -19,7 +19,7 @@ export default function OrderSummary() {
             {typeof document !== "undefined" && userdetails.name && (
               <Image
                 src={URL?.createObjectURL(userdetails.profile)}
-                className="sm:block hidden h-10 w-10 rounded-full mb-2"
+                className="sm:block border-2 border-black hidden h-12 w-12 rounded-full mb-2"
                 height={40}
                 width={40}
                 alt={userdetails.name}
@@ -28,7 +28,7 @@ export default function OrderSummary() {
             <div className="flex flex-col gap-2 mt-4 text-sm">
               <p className="flex items-center">
                 <FaUser className="mr-2" />
-                <span className="font-semibold mr-2">Name : </span>{" "}
+                <span className="font-semibold mr-2">Name : </span>
                 <span className="text-slate-500"> {userdetails.name}</span>
               </p>
               <p className="flex items-center">

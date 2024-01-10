@@ -39,7 +39,7 @@ export default function RootLayout({
           <Cart />
           <Navbar />
           
-          <div className="py-28 h-[60vh] mb-20">
+          <div className="py-32 sm:py-28 p-2 sm:p-0 h-[60vh] mb-20">
             <>
             <BackButton/>
             {children}

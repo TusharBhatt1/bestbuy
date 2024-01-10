@@ -8,11 +8,11 @@ import useCartDetails from "@/app/Others/hooks/useCartDetails"
 export default function PaymentPage() {
   const { finalCart } = useCartDetails();
   const totalPrice = finalCart.reduce((a, b) => a + b.price, 0);
-  
+
 
   return (
-    <div className="flex mt-4 w-full justify-center items-center text-xs">
-      <div className="shadow-xl p-4 overflow-x-auto">  
+    <div className="flex mt-4 w-full justify-center items-center">
+      <div className="shadow-xl p-4  overflow-x-auto">  
         <OrderSummary />
         <hr />
         <PaymentForm totalPrice={totalPrice} />
