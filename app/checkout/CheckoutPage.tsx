@@ -65,11 +65,11 @@ export default function CheckoutPage({
   return (
     <div className="flex gap-3 flex-col justify-center items-center py-2 sm:px-8 h-full">
       <div className="flex flex-col justify-center gap-2 px-8 py-2 shadow-md rounded-md">
-        <div className="grid grid-cols-4  justify-center items-center text-center sm:px-0 px-4 ">
+        <div className="grid grid-cols-4  justify-center items-center text-center  ">
           <p>Product</p>
           <p>Price</p>
           <p>Quantity</p>
-          <p className="w-[150px] sm:w-auto">
+          <p className="w-[100px] sm:w-auto">
           <Button onClick={onCheckout} label="Buy"/>
           </p>
         </div>
