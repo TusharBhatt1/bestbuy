@@ -72,7 +72,7 @@ export default function OrderSummary({totalPrice}:{totalPrice:number}) {
           <p className="text-slate-400 text-sm">
             Order Details ({finalCart.length})
           </p>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 max-h-40 overflow-auto">
             {finalCart.map((item) => (
               <div key={item.id} className="grid grid-cols-2 justify-center items-center bg-slate-50 rounded-lg p-2 ">
                 

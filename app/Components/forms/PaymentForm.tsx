@@ -90,7 +90,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col  rounded-md py-4 gap-4">
+      <div className="flex flex-col justify-center items-center rounded-md py-4 gap-4">
         <p className="text-xl text-center font-bold text-blue-500">
           Select Payment Method
         </p>
