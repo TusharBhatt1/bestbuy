@@ -18,8 +18,7 @@ export default function CartModal({
   const { setFinalCart, finalCart, setExistingCart } = useCartDetails();
 
   const totalPrice = finalCart.reduce(
-    (a, item) => (a + item.price * item.quantity) | 1,
-    0
+    (a, item) => (a + item.price),0
   );
   useEffect(() => {
     setExistingCart(products);
