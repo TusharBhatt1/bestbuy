@@ -44,7 +44,7 @@ const cardsConfig = [
 ];
 
 export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
-  const [payMethod, setPayMethod] = useState("");
+  const [payMethod, setPayMethod] = useState("UPI");
   const { userdetails } = useUserPaymentData();
   const [isProcessing, setIsProcessing] = useState(false);
   const { setPaymentMethod } = useUserPaymentData();
@@ -61,6 +61,8 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   });
 
   useEffect(() => {
+    //@ts-ignore
+    setValue("paymentMode", "UPI");
     if (userdetails.name === "") {
       unAuth();
     }
@@ -88,7 +90,7 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col shadow-lg rounded-md py-4  gap-4">
+      <div className="flex flex-col  rounded-md py-4 gap-4">
         <p className="text-xl text-center font-bold text-blue-500">
           Select Payment Method
         </p>

@@ -23,14 +23,15 @@ const useCartDetails = create<OrderDetails>((set) => ({
       const productIndex = state.addedItems.findIndex((item) => item.id === value.id);
 
       if (productIndex !== -1) {
-        // Product already exists, update its quantity
-        const updatedItems = [...state.addedItems];
-        updatedItems[productIndex] = {
-          ...value,
-          quantity: updatedItems[productIndex].quantity + 1,
-        };
+        // // Product already exists, update its quantity
+        // const updatedItems = [...state.addedItems];
+        // updatedItems[productIndex] = {
+        //   ...value,
+        //   quantity: updatedItems[productIndex].quantity + 1,
+        // };
 
-        return { addedItems: updatedItems };
+        // return { addedItems: updatedItems };
+        return {addedItems :[...state.addedItems]}
       }
 
       // Product doesn't exist, add it to the cart

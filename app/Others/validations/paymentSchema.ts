@@ -6,10 +6,10 @@ export const paymentSchema = Yup.object().shape({
   .when('paymentMode', {
     is: (paymentMode) => paymentMode === 'UPI',
     then: Yup.string()
-      .matches(/^[a-zA-Z]+$/, 'Holder name should only contain alphabets')
+      .matches(/^[a-zA-Z]+$/, 'Should only contain alphabets')
       .min(5)
       .max(25)
-      .required('Required'),
+      .required('Required')
   }),
   //@ts-ignore
   upiAddress: Yup.string().when('paymentMode', {

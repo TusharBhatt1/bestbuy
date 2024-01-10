@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({
   const Icon: any = icon;
   
   return (
-    <div className="flex flex-col mt-4">
+    <div className="flex flex-col mt-4 w-full">
       <label
         htmlFor={name}
         className="text-sm font-medium text-gray-700 flex items-center"

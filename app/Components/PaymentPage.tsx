@@ -7,15 +7,15 @@ import useCartDetails from "@/app/Others/hooks/useCartDetails"
 
 export default function PaymentPage() {
   const { finalCart } = useCartDetails();
-  const totalPrice = finalCart.reduce((a, b) => a + b.price, 0);
+  const totalPrice = finalCart.reduce((a,b) => a + b.price, 0);
 
 
   return (
-    <div className="flex mt-4 w-full justify-center items-center">
-      <div className="shadow-xl p-4  overflow-x-auto">  
-        <OrderSummary />
-        <hr />
+    <div className="flex mt-4 w-full md:w-[70vw] shadow-lg m-auto justify-center items-center">
+      <div className="grid grid-rows-2 md:gap-8 md:h-[70vh] md:grid-cols-2 p-7 overflow-x-auto">  
+        <OrderSummary totalPrice={totalPrice} />
         <PaymentForm totalPrice={totalPrice} />
+       
       </div>
     </div>
   );
