@@ -63,9 +63,9 @@ export default function CheckoutPage({
     toast.error("Removed");
   };
   return (
-    <div className="flex gap-2 flex-col justify-center items-center px-14 sm:px-12">
+    <div className="flex gap-3 flex-col justify-center items-center py-2 sm:px-8 h-full">
       <div className="flex flex-col justify-center gap-2 px-8 py-2 shadow-md rounded-md">
-        <div className="grid grid-cols-4  justify-center items-center text-center font-bold text-slate-500">
+        <div className="grid grid-cols-4  justify-center items-center text-center sm:px-0 px-4 ">
           <p>Product</p>
           <p>Price</p>
           <p>Quantity</p>
