@@ -20,8 +20,8 @@ export default function OrderSummary({totalPrice}:{totalPrice:number}) {
 
           <div className="flex gap-4 text-xs justify-start items-start">
            
-            <div className="grid grid-cols-3 text-sm">
-              <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-3 gap-2 md:gap-12 text-sm">
+              <div className="flex flex-col gap-4 w-full">
               <p className="flex flex-col ">
                 <div className="flex">
                 <FaUser className="mr-2 text-blue-500" />
@@ -34,24 +34,24 @@ export default function OrderSummary({totalPrice}:{totalPrice:number}) {
                 <FaMapMarkerAlt className="mr-2 text-blue-500" />
                 <span className=" mr-2 text-sm">Address : </span>
                 </div>
-                <span className="mt-2"> {userdetails.address}</span>
+                <span className="mt-2 text-center"> {userdetails.address}</span>
               </p>
               </div>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 ">
               <p className="flex flex-col ">
                 <div className="flex">
                 <FaUser className="mr-2 text-blue-500" />
                 <span className=" mr-2 text-sm">Contact : </span>
                 </div>
-                <span className="mt-2"> {userdetails.contact}</span>
+                <span className="mt-2 text-center"> {userdetails.contact}</span>
               </p>
            
               <p className="flex flex-col ">
                 <div className="flex">
-                <FaUser className="mr-2 text-blue-500" />
+                <MdOutlineEmail className="mr-2 text-blue-500" />
                 <span className=" mr-2 text-sm">Email : </span>
                 </div>
-                <span className="mt-2"> {userdetails.email}</span>
+                <span className="mt-2 text-center"> {userdetails.email}</span>
               </p>
               </div>
             {typeof document !== "undefined" && userdetails.name && (
