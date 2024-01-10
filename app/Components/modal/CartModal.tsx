@@ -81,7 +81,7 @@ export default function CartModal({
   const footer = (
     <div>
       <hr />
-      <p>Total Price : Rs {totalPrice}</p>
+      <p>Total Price : Rs {totalPrice.toFixed()}</p>
     </div>
   );
   return (
