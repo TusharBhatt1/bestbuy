@@ -52,13 +52,13 @@ export default function OrderSummary() {
           </p>
           <div className="flex flex-col gap-2">
             {finalCart.map((item) => (
-              <div
+              <li
                 key={item.id}
                 className="flex justify-between items-center text-xs text-slate-500"
               >
                 <li className="flex items-center ">{item.title}</li>
                 <span>(1)</span>
-              </div>
+              </li>
             ))}
           </div>
         </div>
