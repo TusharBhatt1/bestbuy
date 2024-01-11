@@ -63,6 +63,8 @@ export default function PaymentForm({ totalPrice }: { totalPrice: number }) {
   useEffect(() => {
     //@ts-ignore
     setValue("paymentMode", "UPI");
+    setPaymentMethod("UPI");
+    
     if (userdetails.name === "") {
       unAuth();
     }
