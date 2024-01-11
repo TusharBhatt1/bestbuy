@@ -3,7 +3,7 @@ import useCartDetails from '../Others/hooks/useCartDetails';
 
 export default function TotalPrice() {
   const { finalCart } = useCartDetails();
-  const totalPrice = finalCart.reduce((a, b) => a + b.price*(b.quantity || 1), 0);
+  const totalPrice = finalCart.reduce((a, b) => a + b.price, 0);
 
 
   return (
