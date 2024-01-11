@@ -49,7 +49,7 @@ export default function AddToWishlistModal() {
     );
   } else {
     body = (
-      <div>
+      <div className="flex flex-col gap-4">
         <p className="text-slate-500 text-sm mb-2">In which one you want to add ?</p>
         {wishlist.all_wishlists.map((wishlist) => (
           <li

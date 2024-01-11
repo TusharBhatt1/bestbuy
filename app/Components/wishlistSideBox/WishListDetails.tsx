@@ -25,7 +25,7 @@ export default function WishListDetails({
 
   const handleDeleteWishlist = (listname: string) => {
     wishListModal.onDeleteWishlist(listname);
-    toast.error("Deleted");
+    toast.success("Removed");
   };
   const handleRemoveItem = (listname: string, itemname: string) => {
     wishListModal.removeItemFromWishlist(listname, itemname);
@@ -52,12 +52,12 @@ export default function WishListDetails({
                   key={index}
                   className="border-b-2 border-slate-200 p-2 rounded"
                 >
-                  <div className="flex justify-between items-center mb-2">
+                  <div className="grid grid-cols-3 items-center mb-2">
                     <p
-                      className=" text-md font-bold cursor-pointer"
+                      className=" text-sm  cursor-pointer"
                       onClick={() => toggleExpand(index)}
                     >
-                      {wishlist.listName}{" "}
+                      {wishlist.listName} {" "}
                       <span className="text-xs text-slate-300">
                         ({wishlist.listItems.length})
                       </span>
