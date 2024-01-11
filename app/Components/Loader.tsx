@@ -25,12 +25,12 @@ export default function Loader() {
           <p className="text-center text-lg font-extrabold text-red-100">
             Tushar Bhatt
           </p>
-          <div className="w-full lg:w-1/2 mt-10">
+          {/* <div className="w-full lg:w-1/2 mt-10">
             <Button
               onClick={() => loading.onDone()}
               label="If it takes long."
             />
-          </div>
+          </div> */}
         </div>
       </div>
     );

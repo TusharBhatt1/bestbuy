@@ -1,5 +1,5 @@
 "use client";
-import Empty from "@/public/empty.svg"
+import Empty from "@/public/empty.svg";
 import { OrderDetailsProps } from "@/app/@types";
 import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
@@ -17,9 +17,7 @@ export default function CartModal({
   const { products } = orderDetails;
   const { setFinalCart, finalCart, setExistingCart } = useCartDetails();
 
-  const totalPrice = finalCart.reduce(
-    (a, item) => (a + item.price),0
-  );
+  const totalPrice = finalCart.reduce((a, item) => a + item.price, 0);
   useEffect(() => {
     setExistingCart(products);
   }, []);
@@ -49,10 +47,7 @@ export default function CartModal({
     bodyContent = (
       <div className="flex flex-col justify-between gap-4 items-center">
         <p className="text-center font-bold"> Cart is Empty</p>
-        <Image 
-        alt="Empty"
-        src={Empty}
-         height={200} width={200}/>
+        <Image alt="Empty" src={Empty} height={200} width={200} />
       </div>
     );
   } else
@@ -61,10 +56,11 @@ export default function CartModal({
         {/* <div className="flex justify-center p-4 gap-2 w-full items-center "></div> */}
         <div className="flex flex-col gap-5 justify-between items-center">
           {finalCart.map((product) => (
-            <div key={product.id} className="grid grid-cols-2 w-full justify-between">
-              <p className="text-sm">
-                <li>{product.title}</li>
-              </p>
+            <div
+              key={product.id}
+              className="grid grid-cols-2 gap-4 w-full justify-between items-center"
+            >
+              <li className="text-xs">{product.title}</li>
 
               <Image
                 src={product.image}
@@ -72,7 +68,6 @@ export default function CartModal({
                 alt={product.title}
                 width={30}
               />
-  
             </div>
           ))}
         </div>
@@ -92,7 +87,7 @@ export default function CartModal({
       title="Your Cart"
       onSubmit={onSubmit}
       body={bodyContent}
-      footer={cartSize===0 ? <div></div>: footer}
+      footer={cartSize === 0 ? <div></div> : footer}
       actionLabel={cartSize === 0 ? "Buy Something" : "Move to Checkout"}
     />
   );
