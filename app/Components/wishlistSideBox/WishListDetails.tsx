@@ -78,7 +78,7 @@ export default function WishListDetails({
                     <ul className="list-disc">
                       {wishlist.listItems.map((item: ProductType) => (
                         <div
-                          className="flex gap-2 px-2 items-center"
+                          className="flex justify-between gap-2 px-2 items-center"
                           key={item.id}
                         >
                           <Link

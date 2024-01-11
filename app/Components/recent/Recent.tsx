@@ -13,7 +13,7 @@ export default function Recent() {
     <>
       {cache.length> 1 && (
         <div className='flex flex-col w-full sm:w-[32vw]'>
-        <p className=' text-sm  text-center'>
+        <p className=' text-sm mt-4 md:mt-0  text-center'>
           Recently Viewed
         </p>
         <div className="w-full px-10 md:px-0  h-full p-4 ">

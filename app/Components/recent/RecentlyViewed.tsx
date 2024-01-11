@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import Spinner from "../Spinner";
 const DynamicRecentCard =dynamic(()=>import("./RecentCard"),{
-  loading:()=><Spinner/>
+  loading:()=><div className="w-32 h-32"><div><Spinner/></div></div>
 }) 
 
 export default function RecentlyViewed() {
@@ -13,7 +13,7 @@ export default function RecentlyViewed() {
   const id = params.id;
   const { cache } = useLRU();
   return (
-    <>
+    <div className="grid grid-cols-2 gap-4">
       {cache.map((item) => {
         if (item.key !== id) {
           return (
@@ -21,7 +21,7 @@ export default function RecentlyViewed() {
           );
         }
       })}
-    </>
+    </div>
   );
 };
 

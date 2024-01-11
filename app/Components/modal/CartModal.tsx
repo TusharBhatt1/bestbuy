@@ -58,10 +58,10 @@ export default function CartModal({
   } else
     bodyContent = (
       <>
-        <div className="flex justify-center p-4 gap-2 w-full items-center "></div>
-        <div className="flex flex-col gap-5 justify-center items-center">
+        {/* <div className="flex justify-center p-4 gap-2 w-full items-center "></div> */}
+        <div className="flex flex-col gap-5 justify-between items-center">
           {finalCart.map((product) => (
-            <div key={product.id} className="flex w-full justify-between">
+            <div key={product.id} className="grid grid-cols-2 w-full justify-between">
               <p className="text-sm">
                 <li>{product.title}</li>
               </p>
@@ -72,7 +72,7 @@ export default function CartModal({
                 alt={product.title}
                 width={30}
               />
-              <hr></hr>
+  
             </div>
           ))}
         </div>

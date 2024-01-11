@@ -20,19 +20,19 @@ export default function OrderSummary({totalPrice}:{totalPrice:number}) {
 
           <div className="flex gap-4 text-xs justify-start items-start">
            
-            <div className="grid grid-cols-3 gap-2 md:gap-12 text-sm">
+            <div className="grid grid-cols-3 justify-center gap-2 md:gap-12 text-sm">
               <div className="flex flex-col gap-4 w-full">
-              <p className="flex flex-col ">
+              <p className="flex flex-col justify-center ">
                 <div className="flex">
                 <FaUser className="mr-2 text-blue-500" />
-                <span className=" mr-2 text-sm">Name : </span>
+                <span className=" mr-2 text-sm text-slate-500">Name : </span>
                 </div>
                 <span className="mt-2"> {userdetails.name}</span>
               </p>
               <p className="flex flex-col ">
                 <div className="flex">
                 <FaMapMarkerAlt className="mr-2 text-blue-500" />
-                <span className=" mr-2 text-sm">Address : </span>
+                <span className=" mr-2 text-sm text-slate-500">Address : </span>
                 </div>
                 <span className="mt-2 text-center"> {userdetails.address}</span>
               </p>
@@ -41,7 +41,7 @@ export default function OrderSummary({totalPrice}:{totalPrice:number}) {
               <p className="flex flex-col ">
                 <div className="flex">
                 <FaUser className="mr-2 text-blue-500" />
-                <span className=" mr-2 text-sm">Contact : </span>
+                <span className=" mr-2 text-sm text-slate-500">Contact : </span>
                 </div>
                 <span className="mt-2 text-center"> {userdetails.contact}</span>
               </p>
@@ -49,7 +49,7 @@ export default function OrderSummary({totalPrice}:{totalPrice:number}) {
               <p className="flex flex-col ">
                 <div className="flex">
                 <MdOutlineEmail className="mr-2 text-blue-500" />
-                <span className=" mr-2 text-sm">Email : </span>
+                <span className=" mr-2 text-sm text-slate-500 ">Email : </span>
                 </div>
                 <span className="mt-2 text-center"> {userdetails.email}</span>
               </p>

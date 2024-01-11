@@ -95,7 +95,7 @@ export default function ProductDetails({
 
             <div className="flex flex-col gap-2 sm:gap-10 justify-center items-center">
               <Sizes/>
-              <div className="my-4 sm:my-0 w-[40vw]">
+              <div className="my-4 sm:my-0 w-[50vw] md:w-[40vw]">
                 <Button onClick={handleAddToCart} label="Add to Cart" />
               </div>
             </div>
